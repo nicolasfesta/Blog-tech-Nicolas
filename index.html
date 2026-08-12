@@ -1,37 +1,2182 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog ambiental</title> 
-    <style> 
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Blog sobre meio ambiente, natureza, sustentabilidade e curiosidades."
+    >
+
+    <title>🌎 Blog Ambiental</title>
+
+
+    <style>
+
+        /* =====================================================
+           CÓDIGO - GERAL
+           ===================================================== */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            font-size: 16px;
+
+            line-height: 1.6;
+
+            color: #163d3a;
+
+            background-color: #eaf4f1;
+
+            transition:
+                background-color 0.3s,
+                color 0.3s;
+        }
+
+
+        button,
+        input {
+            font-family: inherit;
+        }
+
+
+        /* =====================================================
+           CABEÇALHO
+           ===================================================== */
+
         header {
-            background-color: #285c55;
-            color: #FFFFFF;
+
+            max-width: 1000px;
+
+            margin: 25px auto 0;
+
+            padding: 35px 25px;
+
             text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 10px;
+
+            color: white;
+
+            background-color: #285c55;
+
+            border-radius:
+                18px 18px 0 0;
+
+            box-shadow:
+                0 5px 15px
+                rgba(0, 0, 0, 0.15);
         }
-        main { 
-            background-color: #FFFFFF;
-            color: rgb(22, 61, 58); /* CORRIGIDO: Removido o caractere ':' extra */
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
+
+
+        header h1 {
+
+            margin-bottom: 10px;
+
+            font-size: 2.5rem;
         }
+
+
+        header p {
+
+            font-size: 1.05rem;
+        }
+
+
+        /* =====================================================
+           MENU
+           ===================================================== */
+
+        nav {
+
+            max-width: 1000px;
+
+            margin: 0 auto;
+
+            padding: 12px 20px;
+
+            background-color: #1d4943;
+        }
+
+
+        nav ul {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+
+            list-style: none;
+        }
+
+
+        nav a {
+
+            display: block;
+
+            padding: 9px 15px;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            border-radius: 8px;
+
+            transition: 0.3s;
+        }
+
+
+        nav a:hover {
+
+            background-color: #36766d;
+
+            transform:
+                translateY(-2px);
+        }
+
+
+        /* =====================================================
+           BOTÃO DE TEMA
+           ===================================================== */
+
+        #botao-tema {
+
+            padding: 9px 15px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background-color: white;
+
+            color: #285c55;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        #botao-tema:hover {
+
+            background-color: #d8eee9;
+
+            transform:
+                scale(1.05);
+        }
+
+
+        /* =====================================================
+           CONTEÚDO PRINCIPAL
+           ===================================================== */
+
+        main {
+
+            max-width: 1000px;
+
+            margin: 0 auto;
+
+            padding:
+                35px 30px 50px;
+
+            background-color: white;
+        }
+
+
+        .secao {
+
+            margin-bottom: 50px;
+
+            scroll-margin-top: 20px;
+        }
+
+
+        .titulo-secao {
+
+            margin-bottom: 20px;
+
+            padding-bottom: 10px;
+
+            color: #285c55;
+
+            font-size: 2rem;
+
+            border-bottom:
+                3px solid #b5ddd5;
+        }
+
+
+        /* =====================================================
+           DESTAQUE
+           ===================================================== */
+
+        .destaque {
+
+            padding: 30px;
+
+            margin-bottom: 35px;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #357d72,
+                    #55a99b
+                );
+
+            border-radius: 15px;
+        }
+
+
+        .destaque h2 {
+
+            margin-bottom: 10px;
+        }
+
+
+        /* =====================================================
+           POSTAGENS
+           ===================================================== */
+
+        .postagens {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(280px, 1fr)
+                );
+
+            gap: 25px;
+        }
+
+
+        .postagem {
+
+            padding: 25px;
+
+            background-color: #f5faf8;
+
+            border:
+                1px solid #d4e8e3;
+
+            border-radius: 12px;
+
+            box-shadow:
+                0 4px 10px
+                rgba(0, 0, 0, 0.08);
+
+            transition:
+                transform 0.3s,
+                box-shadow 0.3s;
+        }
+
+
+        .postagem:hover {
+
+            transform:
+                translateY(-5px);
+
+            box-shadow:
+                0 8px 18px
+                rgba(0, 0, 0, 0.12);
+        }
+
+
+        .icone {
+
+            display: block;
+
+            margin-bottom: 10px;
+
+            font-size: 2rem;
+        }
+
+
+        .postagem h3 {
+
+            margin-bottom: 8px;
+
+            color: #285c55;
+
+            font-size: 1.4rem;
+        }
+
+
+        .autor {
+
+            margin-bottom: 12px;
+
+            color: #55736f;
+
+            font-size: 0.9rem;
+        }
+
+
+        /* =====================================================
+           ÁREA DE CURTIDA
+           ===================================================== */
+
+        .acoes-postagem {
+
+            display: flex;
+
+            gap: 10px;
+
+            margin-top: 20px;
+
+            padding-top: 15px;
+
+            border-top:
+                1px solid #d4e8e3;
+        }
+
+
+        .botao-curtir {
+
+            padding: 9px 15px;
+
+            border:
+                2px solid #f2a7b8;
+
+            border-radius: 20px;
+
+            background-color: white;
+
+            color: #b84d6a;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.25s;
+        }
+
+
+        .botao-curtir:hover {
+
+            transform:
+                scale(1.05);
+
+            background-color:
+                #fff0f4;
+        }
+
+
+        .botao-curtir.curtido {
+
+            background-color:
+                #ffdce6;
+
+            color:
+                #d62959;
+        }
+
+
+        /* =====================================================
+           ÁREA DE COMENTÁRIOS
+           ===================================================== */
+
+        .comentarios {
+
+            margin-top: 20px;
+
+            padding-top: 18px;
+
+            border-top:
+                1px solid #d4e8e3;
+        }
+
+
+        .comentarios h4 {
+
+            margin-bottom: 12px;
+
+            color: #285c55;
+
+            font-size: 1.1rem;
+        }
+
+
+        .form-comentario {
+
+            display: flex;
+
+            gap: 8px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .form-comentario input {
+
+            flex: 1;
+
+            min-width: 0;
+
+            padding:
+                10px 12px;
+
+            border:
+                2px solid #b9dcd5;
+
+            border-radius: 20px;
+
+            outline: none;
+
+            background-color: white;
+
+            color: #163d3a;
+        }
+
+
+        .form-comentario input:focus {
+
+            border-color:
+                #4c9488;
+
+            box-shadow:
+                0 0 5px
+                rgba(76, 148, 136, 0.3);
+        }
+
+
+        .botao-comentar {
+
+            padding:
+                10px 15px;
+
+            border: none;
+
+            border-radius: 20px;
+
+            background-color:
+                #285c55;
+
+            color: white;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        .botao-comentar:hover {
+
+            background-color:
+                #36766d;
+
+            transform:
+                scale(1.03);
+        }
+
+
+        /* =====================================================
+           LISTA DE COMENTÁRIOS
+           ===================================================== */
+
+        .lista-comentarios {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 8px;
+
+            list-style: none;
+        }
+
+
+        .comentario {
+
+            position: relative;
+
+            padding:
+                10px 40px 10px 12px;
+
+            background-color:
+                #eaf5f2;
+
+            border-radius: 10px;
+
+            font-size: 0.95rem;
+        }
+
+
+        .comentario-vazio {
+
+            color: #6d8580;
+
+            font-size: 0.9rem;
+
+            font-style: italic;
+        }
+
+
+        .botao-excluir-comentario {
+
+            position: absolute;
+
+            top: 7px;
+
+            right: 8px;
+
+            border: none;
+
+            background: transparent;
+
+            color: #b84d6a;
+
+            cursor: pointer;
+
+            font-size: 0.9rem;
+        }
+
+
+        .botao-excluir-comentario:hover {
+
+            color: #d62959;
+        }
+
+
+        /* =====================================================
+           FATOS INTERESSANTES
+           ===================================================== */
+
+        .fatos {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(220px, 1fr)
+                );
+
+            gap: 20px;
+        }
+
+
+        .fato {
+
+            padding: 22px;
+
+            text-align: center;
+
+            background-color: #e9f7f3;
+
+            border:
+                2px solid #c5e5df;
+
+            border-radius: 15px;
+        }
+
+
+        .fato .emoji {
+
+            display: block;
+
+            margin-bottom: 10px;
+
+            font-size: 2.5rem;
+        }
+
+
+        .fato h3 {
+
+            margin-bottom: 8px;
+
+            color: #285c55;
+        }
+
+
+        /* =====================================================
+           SAIBA MAIS
+           ===================================================== */
+
+        .lista-dicas {
+
+            display: grid;
+
+            gap: 15px;
+
+            list-style: none;
+        }
+
+
+        .lista-dicas li {
+
+            padding: 15px 18px;
+
+            background-color: #f1f8f6;
+
+            border-left:
+                5px solid #4c9488;
+
+            border-radius: 8px;
+        }
+
+
+        /* =====================================================
+           RODAPÉ
+           ===================================================== */
+
+        footer {
+
+            max-width: 1000px;
+
+            margin: 0 auto 25px;
+
+            padding: 25px;
+
+            text-align: center;
+
+            color: white;
+
+            background-color: #285c55;
+
+            border-radius:
+                0 0 18px 18px;
+        }
+
+
+        /* =====================================================
+           TEMA ESCURO
+           ===================================================== */
+
+        body.tema-escuro {
+
+            color: #e8f2f0;
+
+            background-color:
+                #172522;
+        }
+
+
+        body.tema-escuro header {
+
+            background-color:
+                #193f3a;
+        }
+
+
+        body.tema-escuro nav {
+
+            background-color:
+                #102f2b;
+        }
+
+
+        body.tema-escuro main {
+
+            background-color:
+                #20312e;
+        }
+
+
+        body.tema-escuro
+        .titulo-secao {
+
+            color:
+                #78c8bb;
+
+            border-color:
+                #3d655e;
+        }
+
+
+        body.tema-escuro
+        .postagem {
+
+            background-color:
+                #29403b;
+
+            border-color:
+                #3d5b55;
+        }
+
+
+        body.tema-escuro
+        .postagem h3,
+        body.tema-escuro
+        .comentarios h4 {
+
+            color:
+                #78c8bb;
+        }
+
+
+        body.tema-escuro
+        .autor {
+
+            color:
+                #a8c3be;
+        }
+
+
+        body.tema-escuro
+        .acoes-postagem,
+        body.tema-escuro
+        .comentarios {
+
+            border-color:
+                #3d5b55;
+        }
+
+
+        body.tema-escuro
+        .form-comentario input {
+
+            background-color:
+                #203a35;
+
+            color: white;
+
+            border-color:
+                #4f7d75;
+        }
+
+
+        body.tema-escuro
+        .comentario {
+
+            background-color:
+                #203a35;
+
+            color: #e8f2f0;
+        }
+
+
+        body.tema-escuro
+        .fato {
+
+            background-color:
+                #29403b;
+
+            border-color:
+                #3d5b55;
+        }
+
+
+        body.tema-escuro
+        .fato h3 {
+
+            color:
+                #78c8bb;
+        }
+
+
+        body.tema-escuro
+        .lista-dicas li {
+
+            background-color:
+                #29403b;
+        }
+
+
+        /* =====================================================
+           RESPONSIVIDADE
+           ===================================================== */
+
+        @media (max-width: 650px) {
+
+            header {
+
+                margin-top: 0;
+
+                border-radius: 0;
+            }
+
+
+            header h1 {
+
+                font-size: 2rem;
+            }
+
+
+            nav ul {
+
+                flex-direction: column;
+            }
+
+
+            nav li,
+            nav a,
+            #botao-tema {
+
+                width: 100%;
+
+                text-align: center;
+            }
+
+
+            main {
+
+                padding:
+                    25px 15px 40px;
+            }
+
+
+            .postagens {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .form-comentario {
+
+                flex-direction: column;
+            }
+
+
+            .botao-comentar {
+
+                width: 100%;
+            }
+
+        }
+
     </style>
+
 </head>
-<body>
+
+
+<body id="inicio">
+
+
+    <!-- =====================================================
+         CABEÇALHO
+         ===================================================== -->
+
     <header>
-        <h1>Meio ambiente</h1>
-        <p>Aqui vou falar sobre fatos e curiosidades em relação ao meio ambiente</p>
+
+        <h1>
+            🌎 Blog Ambiental
+        </h1>
+
+        <p>
+            Fatos, curiosidades e informações
+            sobre o meio ambiente.
+        </p>
+
     </header>
-    
+
+
+    <!-- =====================================================
+         MENU
+         ===================================================== -->
+
+    <nav>
+
+        <ul>
+
+            <li>
+                <a href="#inicio">
+                    🏠 Início
+                </a>
+            </li>
+
+            <li>
+                <a href="#sobre">
+                    🌱 Sobre
+                </a>
+            </li>
+
+            <li>
+                <a href="#postagens">
+                    📰 Postagens
+                </a>
+            </li>
+
+            <li>
+                <a href="#saiba-mais">
+                    📚 Saiba mais
+                </a>
+            </li>
+
+            <li>
+                <a href="#fatos">
+                    💡 Fatos interessantes
+                </a>
+            </li>
+
+            <li>
+
+                <button id="botao-tema">
+                    🌙 Tema escuro
+                </button>
+
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- =====================================================
+         CONTEÚDO
+         ===================================================== -->
+
     <main>
-        <h2>Meu primeiro post</h2>
-        <p><strong>Por:</strong> Nicolas Oliveira</p>
-        <p>Boas-vindas au meu novo blog! Aqui vou compartilhar meus pensamentos em relação ao meio ambiente e como ele está sendo afetado atualmente.</p>
+
+
+        <!-- =================================================
+             INÍCIO
+             ================================================= -->
+
+        <section
+            class="secao"
+            id="inicio-conteudo"
+        >
+
+            <div class="destaque">
+
+                <h2>
+                    🌿 Bem-vindo ao Blog Ambiental!
+                </h2>
+
+                <p>
+                    Este é um espaço dedicado a compartilhar
+                    informações, curiosidades e ideias sobre
+                    o meio ambiente e a importância de
+                    preservar nosso planeta.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             SOBRE
+             ================================================= -->
+
+        <section
+            class="secao"
+            id="sobre"
+        >
+
+            <h2 class="titulo-secao">
+                🌱 Sobre o blog
+            </h2>
+
+            <p>
+
+                Este blog foi criado para falar sobre
+                questões ambientais de uma maneira simples
+                e interessante.
+
+                <br><br>
+
+                Aqui você poderá encontrar informações
+                sobre natureza, animais, água, reciclagem,
+                sustentabilidade e várias outras questões
+                relacionadas ao nosso planeta.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             POSTAGENS
+             ================================================= -->
+
+        <section
+            class="secao"
+            id="postagens"
+        >
+
+            <h2 class="titulo-secao">
+                📰 Postagens
+            </h2>
+
+
+            <div class="postagens">
+
+
+                <!-- ================================
+                     POSTAGEM 1
+                     ================================ -->
+
+                <article
+                    class="postagem"
+                    data-post-id="post-1"
+                >
+
+                    <span class="icone">
+                        🌿
+                    </span>
+
+                    <h3>
+                        Meu primeiro post
+                    </h3>
+
+                    <p class="autor">
+                        <strong>Por:</strong>
+                        Nicolas Oliveira
+                    </p>
+
+                    <p>
+                        Boas-vindas ao meu novo blog!
+                        Aqui vou compartilhar meus pensamentos
+                        em relação ao meio ambiente e como ele
+                        está sendo afetado atualmente.
+                    </p>
+
+
+                    <!-- Ações -->
+
+                    <div class="acoes-postagem">
+
+                        <button class="botao-curtir">
+
+                            🤍 Curtir
+
+                            <span
+                                class="contador-curtidas"
+                            >
+                                0
+                            </span>
+
+                        </button>
+
+                    </div>
+
+
+                    <!-- Comentários -->
+
+                    <div class="comentarios">
+
+                        <h4>
+                            💬 Comentários
+                        </h4>
+
+
+                        <form class="form-comentario">
+
+                            <input
+                                type="text"
+                                class="campo-comentario"
+                                placeholder="Escreva um comentário..."
+                                maxlength="200"
+                                autocomplete="off"
+                            >
+
+                            <button
+                                type="submit"
+                                class="botao-comentar"
+                            >
+                                Comentar
+                            </button>
+
+                        </form>
+
+
+                        <ul class="lista-comentarios">
+
+                            <li
+                                class="comentario-vazio"
+                            >
+                                Ainda não existem comentários.
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </article>
+
+
+                <!-- ================================
+                     POSTAGEM 2
+                     ================================ -->
+
+                <article
+                    class="postagem"
+                    data-post-id="post-2"
+                >
+
+                    <span class="icone">
+                        🌳
+                    </span>
+
+                    <h3>
+                        A importância das árvores
+                    </h3>
+
+                    <p class="autor">
+                        <strong>Por:</strong>
+                        Nicolas Oliveira
+                    </p>
+
+                    <p>
+                        As árvores são fundamentais para
+                        o equilíbrio dos ecossistemas e
+                        ajudam a melhorar a qualidade do ar.
+                    </p>
+
+
+                    <div class="acoes-postagem">
+
+                        <button class="botao-curtir">
+
+                            🤍 Curtir
+
+                            <span
+                                class="contador-curtidas"
+                            >
+                                0
+                            </span>
+
+                        </button>
+
+                    </div>
+
+
+                    <div class="comentarios">
+
+                        <h4>
+                            💬 Comentários
+                        </h4>
+
+
+                        <form class="form-comentario">
+
+                            <input
+                                type="text"
+                                class="campo-comentario"
+                                placeholder="Escreva um comentário..."
+                                maxlength="200"
+                                autocomplete="off"
+                            >
+
+                            <button
+                                type="submit"
+                                class="botao-comentar"
+                            >
+                                Comentar
+                            </button>
+
+                        </form>
+
+
+                        <ul class="lista-comentarios">
+
+                            <li
+                                class="comentario-vazio"
+                            >
+                                Ainda não existem comentários.
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </article>
+
+
+                <!-- ================================
+                     POSTAGEM 3
+                     ================================ -->
+
+                <article
+                    class="postagem"
+                    data-post-id="post-3"
+                >
+
+                    <span class="icone">
+                        💧
+                    </span>
+
+                    <h3>
+                        A importância da água
+                    </h3>
+
+                    <p class="autor">
+                        <strong>Por:</strong>
+                        Nicolas Oliveira
+                    </p>
+
+                    <p>
+                        A água é essencial para todos os
+                        seres vivos. Por isso, devemos evitar
+                        o desperdício e preservar rios,
+                        lagos e oceanos.
+                    </p>
+
+
+                    <div class="acoes-postagem">
+
+                        <button class="botao-curtir">
+
+                            🤍 Curtir
+
+                            <span
+                                class="contador-curtidas"
+                            >
+                                0
+                            </span>
+
+                        </button>
+
+                    </div>
+
+
+                    <div class="comentarios">
+
+                        <h4>
+                            💬 Comentários
+                        </h4>
+
+
+                        <form class="form-comentario">
+
+                            <input
+                                type="text"
+                                class="campo-comentario"
+                                placeholder="Escreva um comentário..."
+                                maxlength="200"
+                                autocomplete="off"
+                            >
+
+                            <button
+                                type="submit"
+                                class="botao-comentar"
+                            >
+                                Comentar
+                            </button>
+
+                        </form>
+
+
+                        <ul class="lista-comentarios">
+
+                            <li
+                                class="comentario-vazio"
+                            >
+                                Ainda não existem comentários.
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </article>
+
+
+                <!-- ================================
+                     POSTAGEM 4
+                     ================================ -->
+
+                <article
+                    class="postagem"
+                    data-post-id="post-4"
+                >
+
+                    <span class="icone">
+                        ♻️
+                    </span>
+
+                    <h3>
+                        A importância da reciclagem
+                    </h3>
+
+                    <p class="autor">
+                        <strong>Por:</strong>
+                        Nicolas Oliveira
+                    </p>
+
+                    <p>
+                        Reciclar ajuda a reduzir a quantidade
+                        de resíduos descartados na natureza
+                        e permite o reaproveitamento de
+                        diversos materiais.
+                    </p>
+
+
+                    <div class="acoes-postagem">
+
+                        <button class="botao-curtir">
+
+                            🤍 Curtir
+
+                            <span
+                                class="contador-curtidas"
+                            >
+                                0
+                            </span>
+
+                        </button>
+
+                    </div>
+
+
+                    <div class="comentarios">
+
+                        <h4>
+                            💬 Comentários
+                        </h4>
+
+
+                        <form class="form-comentario">
+
+                            <input
+                                type="text"
+                                class="campo-comentario"
+                                placeholder="Escreva um comentário..."
+                                maxlength="200"
+                                autocomplete="off"
+                            >
+
+                            <button
+                                type="submit"
+                                class="botao-comentar"
+                            >
+                                Comentar
+                            </button>
+
+                        </form>
+
+
+                        <ul class="lista-comentarios">
+
+                            <li
+                                class="comentario-vazio"
+                            >
+                                Ainda não existem comentários.
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </article>
+
+
+                <!-- ================================
+                     POSTAGEM 5
+                     ================================ -->
+
+                <article
+                    class="postagem"
+                    data-post-id="post-5"
+                >
+
+                    <span class="icone">
+                        🐬
+                    </span>
+
+                    <h3>
+                        Proteção dos animais
+                    </h3>
+
+                    <p class="autor">
+                        <strong>Por:</strong>
+                        Nicolas Oliveira
+                    </p>
+
+                    <p>
+                        Proteger os animais também significa
+                        proteger os ambientes onde eles vivem.
+                        A preservação da biodiversidade é
+                        essencial para o equilíbrio da natureza.
+                    </p>
+
+
+                    <div class="acoes-postagem">
+
+                        <button class="botao-curtir">
+
+                            🤍 Curtir
+
+                            <span
+                                class="contador-curtidas"
+                            >
+                                0
+                            </span>
+
+                        </button>
+
+                    </div>
+
+
+                    <div class="comentarios">
+
+                        <h4>
+                            💬 Comentários
+                        </h4>
+
+
+                        <form class="form-comentario">
+
+                            <input
+                                type="text"
+                                class="campo-comentario"
+                                placeholder="Escreva um comentário..."
+                                maxlength="200"
+                                autocomplete="off"
+                            >
+
+                            <button
+                                type="submit"
+                                class="botao-comentar"
+                            >
+                                Comentar
+                            </button>
+
+                        </form>
+
+
+                        <ul class="lista-comentarios">
+
+                            <li
+                                class="comentario-vazio"
+                            >
+                                Ainda não existem comentários.
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </article>
+
+
+                <!-- ================================
+                     POSTAGEM 6
+                     ================================ -->
+
+                <article
+                    class="postagem"
+                    data-post-id="post-6"
+                >
+
+                    <span class="icone">
+                        ☀️
+                    </span>
+
+                    <h3>
+                        Energia renovável
+                    </h3>
+
+                    <p class="autor">
+                        <strong>Por:</strong>
+                        Nicolas Oliveira
+                    </p>
+
+                    <p>
+                        Fontes de energia renovável, como
+                        a solar e a eólica, podem contribuir
+                        para a redução dos impactos ambientais.
+                    </p>
+
+
+                    <div class="acoes-postagem">
+
+                        <button class="botao-curtir">
+
+                            🤍 Curtir
+
+                            <span
+                                class="contador-curtidas"
+                            >
+                                0
+                            </span>
+
+                        </button>
+
+                    </div>
+
+
+                    <div class="comentarios">
+
+                        <h4>
+                            💬 Comentários
+                        </h4>
+
+
+                        <form class="form-comentario">
+
+                            <input
+                                type="text"
+                                class="campo-comentario"
+                                placeholder="Escreva um comentário..."
+                                maxlength="200"
+                                autocomplete="off"
+                            >
+
+                            <button
+                                type="submit"
+                                class="botao-comentar"
+                            >
+                                Comentar
+                            </button>
+
+                        </form>
+
+
+                        <ul class="lista-comentarios">
+
+                            <li
+                                class="comentario-vazio"
+                            >
+                                Ainda não existem comentários.
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             SAIBA MAIS
+             ================================================= -->
+
+        <section
+            class="secao"
+            id="saiba-mais"
+        >
+
+            <h2 class="titulo-secao">
+                📚 Saiba mais
+            </h2>
+
+
+            <ul class="lista-dicas">
+
+                <li>
+                    🌳 Preserve as árvores e as florestas.
+                </li>
+
+                <li>
+                    💧 Evite desperdiçar água.
+                </li>
+
+                <li>
+                    ♻️ Separe materiais recicláveis.
+                </li>
+
+                <li>
+                    🚲 Sempre que possível, escolha
+                    meios de transporte sustentáveis.
+                </li>
+
+                <li>
+                    🛍️ Reduza o uso de produtos descartáveis.
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- =================================================
+             FATOS
+             ================================================= -->
+
+        <section
+            class="secao"
+            id="fatos"
+        >
+
+            <h2 class="titulo-secao">
+                💡 Fatos interessantes
+            </h2>
+
+
+            <div class="fatos">
+
+                <article class="fato">
+
+                    <span class="emoji">
+                        🌊
+                    </span>
+
+                    <h3>
+                        Oceanos
+                    </h3>
+
+                    <p>
+                        Os oceanos cobrem aproximadamente
+                        71% da superfície da Terra.
+                    </p>
+
+                </article>
+
+
+                <article class="fato">
+
+                    <span class="emoji">
+                        🐝
+                    </span>
+
+                    <h3>
+                        Abelhas
+                    </h3>
+
+                    <p>
+                        As abelhas possuem um papel
+                        importante na polinização.
+                    </p>
+
+                </article>
+
+
+                <article class="fato">
+
+                    <span class="emoji">
+                        ☀️
+                    </span>
+
+                    <h3>
+                        Energia solar
+                    </h3>
+
+                    <p>
+                        A luz solar pode ser aproveitada
+                        para produzir energia elétrica.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
     </main>
+
+
+    <!-- =====================================================
+         RODAPÉ
+         ===================================================== -->
+
+    <footer>
+
+        <p>
+            🌎 Blog Ambiental
+        </p>
+
+        <p>
+            Cuidar do planeta é cuidar do nosso futuro.
+        </p>
+
+    </footer>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script>
+
+
+        /* =====================================================
+           TROCA DE TEMA
+           ===================================================== */
+
+        const botaoTema =
+            document.getElementById(
+                "botao-tema"
+            );
+
+
+        botaoTema.addEventListener(
+            "click",
+            function () {
+
+                document.body.classList.toggle(
+                    "tema-escuro"
+                );
+
+
+                if (
+                    document.body.classList.contains(
+                        "tema-escuro"
+                    )
+                ) {
+
+                    botaoTema.textContent =
+                        "☀️ Tema claro";
+
+                } else {
+
+                    botaoTema.textContent =
+                        "🌙 Tema escuro";
+
+                }
+
+            }
+        );
+
+
+
+        /* =====================================================
+           SISTEMA DE CURTIDAS
+           ===================================================== */
+
+        const postagens =
+            document.querySelectorAll(
+                ".postagem"
+            );
+
+
+        postagens.forEach(
+            function (postagem) {
+
+                const id =
+                    postagem.dataset.postId;
+
+
+                const botaoCurtir =
+                    postagem.querySelector(
+                        ".botao-curtir"
+                    );
+
+
+                const contador =
+                    postagem.querySelector(
+                        ".contador-curtidas"
+                    );
+
+
+                /*
+                    Recupera as curtidas
+                    salvas no navegador.
+                */
+
+                let curtidas =
+                    Number(
+                        localStorage.getItem(
+                            "curtidas-" + id
+                        )
+                    ) || 0;
+
+
+                /*
+                    Verifica se o usuário
+                    já curtiu esta postagem.
+                */
+
+                let usuarioCurtiu =
+                    localStorage.getItem(
+                        "curtiu-" + id
+                    ) === "true";
+
+
+                contador.textContent =
+                    curtidas;
+
+
+                if (usuarioCurtiu) {
+
+                    botaoCurtir.classList.add(
+                        "curtido"
+                    );
+
+                    botaoCurtir.innerHTML =
+                        "❤️ Curtido " +
+                        `<span class="contador-curtidas">${curtidas}</span>`;
+                }
+
+
+                /* Clique no botão */
+
+                botaoCurtir.addEventListener(
+                    "click",
+                    function () {
+
+                        if (usuarioCurtiu) {
+
+                            curtidas--;
+
+                            usuarioCurtiu =
+                                false;
+
+                        } else {
+
+                            curtidas++;
+
+                            usuarioCurtiu =
+                                true;
+                        }
+
+
+                        if (curtidas < 0) {
+
+                            curtidas = 0;
+
+                        }
+
+
+                        localStorage.setItem(
+                            "curtidas-" + id,
+                            curtidas
+                        );
+
+
+                        localStorage.setItem(
+                            "curtiu-" + id,
+                            usuarioCurtiu
+                        );
+
+
+                        contador.textContent =
+                            curtidas;
+
+
+                        if (usuarioCurtiu) {
+
+                            botaoCurtir.classList.add(
+                                "curtido"
+                            );
+
+                            botaoCurtir.innerHTML =
+                                "❤️ Curtido " +
+                                `<span class="contador-curtidas">${curtidas}</span>`;
+
+                        } else {
+
+                            botaoCurtir.classList.remove(
+                                "curtido"
+                            );
+
+                            botaoCurtir.innerHTML =
+                                "🤍 Curtir " +
+                                `<span class="contador-curtidas">${curtidas}</span>`;
+                        }
+
+                    }
+                );
+
+
+
+                /* =================================================
+                   SISTEMA DE COMENTÁRIOS
+                   ================================================= */
+
+                const formulario =
+                    postagem.querySelector(
+                        ".form-comentario"
+                    );
+
+
+                const campo =
+                    postagem.querySelector(
+                        ".campo-comentario"
+                    );
+
+
+                const lista =
+                    postagem.querySelector(
+                        ".lista-comentarios"
+                    );
+
+
+                const chaveComentarios =
+                    "comentarios-" + id;
+
+
+                /*
+                    Recupera comentários
+                    já existentes.
+                */
+
+                let comentarios =
+                    JSON.parse(
+                        localStorage.getItem(
+                            chaveComentarios
+                        )
+                    ) || [];
+
+
+                mostrarComentarios();
+
+
+
+                /* Envio do comentário */
+
+                formulario.addEventListener(
+                    "submit",
+                    function (evento) {
+
+                        evento.preventDefault();
+
+
+                        const texto =
+                            campo.value.trim();
+
+
+                        /*
+                            Não permite
+                            comentário vazio.
+                        */
+
+                        if (texto === "") {
+
+                            alert(
+                                "Digite um comentário antes de publicar."
+                            );
+
+                            campo.focus();
+
+                            return;
+                        }
+
+
+                        /*
+                            Adiciona o comentário
+                            à lista.
+                        */
+
+                        comentarios.push({
+                            id:
+                                Date.now(),
+
+                            texto:
+                                texto
+                        });
+
+
+                        /*
+                            Salva no navegador.
+                        */
+
+                        salvarComentarios();
+
+
+                        /*
+                            Atualiza a tela.
+                        */
+
+                        mostrarComentarios();
+
+
+                        /*
+                            Limpa o campo.
+                        */
+
+                        campo.value = "";
+
+                    }
+                );
+
+
+
+                /* =================================================
+                   MOSTRAR COMENTÁRIOS
+                   ================================================= */
+
+                function mostrarComentarios() {
+
+                    lista.innerHTML = "";
+
+
+                    /*
+                        Caso não existam
+                        comentários.
+                    */
+
+                    if (
+                        comentarios.length === 0
+                    ) {
+
+                        const vazio =
+                            document.createElement(
+                                "li"
+                            );
+
+
+                        vazio.className =
+                            "comentario-vazio";
+
+
+                        vazio.textContent =
+                            "Ainda não existem comentários.";
+
+
+                        lista.appendChild(
+                            vazio
+                        );
+
+
+                        return;
+                    }
+
+
+                    /*
+                        Mostra os comentários
+                        do mais recente para
+                        o mais antigo.
+                    */
+
+                    comentarios
+                        .slice()
+                        .reverse()
+                        .forEach(
+                            function (comentario) {
+
+                                const item =
+                                    document.createElement(
+                                        "li"
+                                    );
+
+
+                                item.className =
+                                    "comentario";
+
+
+                                /*
+                                    textContent é utilizado
+                                    para impedir que alguém
+                                    insira HTML no comentário.
+                                */
+
+                                item.textContent =
+                                    "💬 " +
+                                    comentario.texto;
+
+
+                                /*
+                                    Botão de excluir.
+                                */
+
+                                const excluir =
+                                    document.createElement(
+                                        "button"
+                                    );
+
+
+                                excluir.className =
+                                    "botao-excluir-comentario";
+
+
+                                excluir.textContent =
+                                    "🗑️";
+
+
+                                excluir.title =
+                                    "Excluir comentário";
+
+
+                                excluir.addEventListener(
+                                    "click",
+                                    function () {
+
+                                        excluirComentario(
+                                            comentario.id
+                                        );
+
+                                    }
+                                );
+
+
+                                item.appendChild(
+                                    excluir
+                                );
+
+
+                                lista.appendChild(
+                                    item
+                                );
+
+                            }
+                        );
+                }
+
+
+
+                /* =================================================
+                   SALVAR COMENTÁRIOS
+                   ================================================= */
+
+                function salvarComentarios() {
+
+                    localStorage.setItem(
+                        chaveComentarios,
+                        JSON.stringify(
+                            comentarios
+                        )
+                    );
+
+                }
+
+
+
+                /* =================================================
+                   EXCLUIR COMENTÁRIO
+                   ================================================= */
+
+                function excluirComentario(
+                    idComentario
+                ) {
+
+                    comentarios =
+                        comentarios.filter(
+                            function (comentario) {
+
+                                return (
+                                    comentario.id !==
+                                    idComentario
+                                );
+
+                            }
+                        );
+
+
+                    salvarComentarios();
+
+                    mostrarComentarios();
+
+                }
+
+            }
+        );
+
+    </script>
+
 </body>
+
 </html>
