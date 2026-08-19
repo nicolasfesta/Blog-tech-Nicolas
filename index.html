@@ -21,7 +21,7 @@
     <style>
 
         /* =====================================================
-           CÓDIGO - GERAL
+           RESET
            ===================================================== */
 
         * {
@@ -39,6 +39,7 @@
         body {
 
             font-family:
+                "Trebuchet MS",
                 Arial,
                 Helvetica,
                 sans-serif;
@@ -47,13 +48,36 @@
 
             line-height: 1.6;
 
-            color: #163d3a;
+            color: #064b67;
 
-            background-color: #eaf4f1;
+            /*
+                IMPORTANTE:
+
+                Coloque a imagem de referência
+                na mesma pasta deste HTML com
+                o nome:
+
+                fundo-aqua.jpg
+            */
+
+            background:
+                linear-gradient(
+                    rgba(0, 185, 235, 0.18),
+                    rgba(0, 220, 255, 0.10)
+                ),
+                url("fundo-aqua.jpg")
+                center center /
+                cover
+                fixed
+                no-repeat;
+
+            background-color: #00bce8;
+
+            overflow-x: hidden;
 
             transition:
-                background-color 0.3s,
-                color 0.3s;
+                background 0.4s,
+                color 0.4s;
         }
 
 
@@ -64,43 +88,199 @@
 
 
         /* =====================================================
+           EFEITOS DECORATIVOS
+           ===================================================== */
+
+        body::before {
+
+            content: "";
+
+            position: fixed;
+
+            width: 260px;
+            height: 260px;
+
+            top: 5%;
+            left: -100px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(255,255,255,0.85) 0%,
+                    rgba(255,255,255,0.35) 25%,
+                    rgba(255,255,255,0.05) 60%,
+                    transparent 75%
+                );
+
+            filter: blur(2px);
+
+            pointer-events: none;
+
+            z-index: -1;
+        }
+
+
+        body::after {
+
+            content: "";
+
+            position: fixed;
+
+            width: 320px;
+            height: 320px;
+
+            right: -120px;
+            bottom: 5%;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(0,255,220,0.35),
+                    rgba(0,190,255,0.15),
+                    transparent 70%
+                );
+
+            pointer-events: none;
+
+            z-index: -1;
+        }
+
+
+        /* =====================================================
            CABEÇALHO
            ===================================================== */
 
         header {
 
+            position: relative;
+
             max-width: 1000px;
 
             margin: 25px auto 0;
 
-            padding: 35px 25px;
+            padding: 45px 25px;
 
             text-align: center;
 
             color: white;
 
-            background-color: #285c55;
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(0,174,239,0.88),
+                    rgba(0,112,190,0.78)
+                );
+
+            border:
+                3px solid
+                rgba(255,255,255,0.85);
 
             border-radius:
-                18px 18px 0 0;
+                35px 35px 8px 8px;
 
             box-shadow:
-                0 5px 15px
-                rgba(0, 0, 0, 0.15);
+
+                0 12px 30px
+                rgba(0,80,160,0.40),
+
+                inset 0 3px 0
+                rgba(255,255,255,0.95),
+
+                inset 0 -15px 30px
+                rgba(0,190,255,0.25);
+        }
+
+
+        header::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: -55px;
+            left: 10%;
+
+            width: 80%;
+            height: 100px;
+
+            background:
+                rgba(255,255,255,0.30);
+
+            border-radius: 50%;
+
+            filter: blur(8px);
+        }
+
+
+        header::after {
+
+            content: "";
+
+            position: absolute;
+
+            left: 8%;
+            bottom: 8px;
+
+            width: 84%;
+            height: 5px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #ff5c8a,
+                    #ffd447,
+                    #65ed79,
+                    #35eaff,
+                    #7d7cff,
+                    #ff66c4
+                );
+
+            border-radius: 50%;
+
+            box-shadow:
+                0 0 12px
+                rgba(255,255,255,0.9);
         }
 
 
         header h1 {
 
-            margin-bottom: 10px;
+            position: relative;
 
-            font-size: 2.5rem;
+            z-index: 2;
+
+            margin-bottom: 8px;
+
+            font-size: 2.8rem;
+
+            color: white;
+
+            text-shadow:
+                0 3px 0 #006aa5,
+                0 0 10px #9fffff,
+                0 0 20px rgba(255,255,255,0.7);
         }
 
 
         header p {
 
-            font-size: 1.05rem;
+            position: relative;
+
+            z-index: 2;
+
+            font-size: 1.08rem;
+
+            color: white;
+
+            text-shadow:
+                0 2px 3px
+                rgba(0,65,110,0.7);
         }
 
 
@@ -114,9 +294,24 @@
 
             margin: 0 auto;
 
-            padding: 12px 20px;
+            padding: 12px 18px;
 
-            background-color: #1d4943;
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(0,132,205,0.95),
+                    rgba(0,78,155,0.96)
+                );
+
+            border:
+                2px solid
+                rgba(255,255,255,0.75);
+
+            border-top: none;
+
+            box-shadow:
+                0 8px 22px
+                rgba(0,80,150,0.38);
         }
 
 
@@ -140,7 +335,7 @@
 
             display: block;
 
-            padding: 9px 15px;
+            padding: 9px 16px;
 
             color: white;
 
@@ -148,18 +343,62 @@
 
             font-weight: bold;
 
-            border-radius: 8px;
+            border:
+                2px solid
+                rgba(255,255,255,0.50);
 
-            transition: 0.3s;
+            border-radius: 18px;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(91,231,255,0.95),
+                    rgba(0,121,190,0.92)
+                );
+
+            box-shadow:
+
+                inset 0 2px 0
+                rgba(255,255,255,0.9),
+
+                inset 0 -4px 8px
+                rgba(0,70,150,0.25),
+
+                0 3px 7px
+                rgba(0,60,120,0.25);
+
+            text-shadow:
+                0 1px 2px
+                rgba(0,50,100,0.7);
+
+            transition:
+                0.25s;
         }
 
 
         nav a:hover {
 
-            background-color: #36766d;
-
             transform:
-                translateY(-2px);
+                translateY(-3px)
+                scale(1.03);
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #ffffff,
+                    #66eaff
+                );
+
+            color:
+                #006ca5;
+
+            box-shadow:
+
+                0 0 15px
+                rgba(255,255,255,0.95),
+
+                0 0 25px
+                rgba(0,225,255,0.7);
         }
 
 
@@ -169,30 +408,51 @@
 
         #botao-tema {
 
-            padding: 9px 15px;
+            padding: 9px 16px;
 
-            border: none;
+            border:
+                2px solid
+                rgba(255,255,255,0.8);
 
-            border-radius: 8px;
+            border-radius: 18px;
 
-            background-color: white;
+            background:
+                linear-gradient(
+                    180deg,
+                    #ffffff,
+                    #bdf7ff
+                );
 
-            color: #285c55;
+            color:
+                #006aa5;
 
             font-weight: bold;
 
             cursor: pointer;
 
-            transition: 0.3s;
+            box-shadow:
+
+                inset 0 2px 0 white,
+
+                0 4px 10px
+                rgba(0,70,140,0.3);
+
+            transition: 0.25s;
         }
 
 
         #botao-tema:hover {
 
-            background-color: #d8eee9;
-
             transform:
-                scale(1.05);
+                scale(1.06);
+
+            box-shadow:
+
+                0 0 15px
+                rgba(255,255,255,0.9),
+
+                0 0 20px
+                rgba(0,230,255,0.6);
         }
 
 
@@ -209,7 +469,28 @@
             padding:
                 35px 30px 50px;
 
-            background-color: white;
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(238,255,255,0.94),
+                    rgba(211,250,255,0.91)
+                );
+
+            border-left:
+                3px solid
+                rgba(255,255,255,0.8);
+
+            border-right:
+                3px solid
+                rgba(255,255,255,0.8);
+
+            box-shadow:
+
+                0 0 35px
+                rgba(0,80,160,0.30),
+
+                inset 0 0 30px
+                rgba(0,210,255,0.08);
         }
 
 
@@ -221,18 +502,57 @@
         }
 
 
+        /* =====================================================
+           TÍTULOS DAS SEÇÕES
+           ===================================================== */
+
         .titulo-secao {
 
-            margin-bottom: 20px;
+            position: relative;
+
+            margin-bottom: 22px;
 
             padding-bottom: 10px;
 
-            color: #285c55;
+            color:
+                #0071b8;
 
             font-size: 2rem;
 
+            text-shadow:
+                0 1px 0 white,
+                0 0 8px
+                rgba(0,220,255,0.25);
+
             border-bottom:
-                3px solid #b5ddd5;
+                4px solid
+                #49dce8;
+        }
+
+
+        .titulo-secao::after {
+
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            bottom: -4px;
+
+            width: 100px;
+            height: 4px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #ff5e8a,
+                    #ffd83d,
+                    #55e878,
+                    #31dfff,
+                    #777bff
+                );
+
+            border-radius: 10px;
         }
 
 
@@ -242,26 +562,89 @@
 
         .destaque {
 
-            padding: 30px;
+            position: relative;
+
+            padding: 35px;
 
             margin-bottom: 35px;
+
+            overflow: hidden;
 
             color: white;
 
             background:
                 linear-gradient(
                     135deg,
-                    #357d72,
-                    #55a99b
+                    rgba(0,110,205,0.92),
+                    rgba(0,203,240,0.88),
+                    rgba(32,220,165,0.82)
                 );
 
-            border-radius: 15px;
+            border:
+                3px solid
+                rgba(255,255,255,0.85);
+
+            border-radius: 28px;
+
+            box-shadow:
+
+                0 12px 28px
+                rgba(0,90,150,0.35),
+
+                inset 0 3px 0
+                rgba(255,255,255,0.9);
+        }
+
+
+        .destaque::before {
+
+            content:
+                "☁️   🌈   ☁️";
+
+            position: absolute;
+
+            right: 20px;
+            top: 4px;
+
+            font-size: 2.8rem;
+
+            opacity: 0.55;
+
+            filter:
+                drop-shadow(
+                    0 3px 3px
+                    rgba(0,70,130,0.3)
+                );
+        }
+
+
+        .destaque::after {
+
+            content:
+                "💧  💧  💧";
+
+            position: absolute;
+
+            right: 20px;
+            bottom: 5px;
+
+            font-size: 1.8rem;
+
+            opacity: 0.35;
         }
 
 
         .destaque h2 {
 
+            position: relative;
+
+            z-index: 2;
+
             margin-bottom: 10px;
+
+            text-shadow:
+                0 2px 3px
+                rgba(0,70,120,0.6);
         }
 
 
@@ -285,33 +668,79 @@
 
         .postagem {
 
+            position: relative;
+
             padding: 25px;
 
-            background-color: #f5faf8;
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.94),
+                    rgba(208,249,255,0.88)
+                );
 
             border:
-                1px solid #d4e8e3;
+                2px solid
+                rgba(48,205,230,0.65);
 
-            border-radius: 12px;
+            border-radius: 22px;
 
             box-shadow:
-                0 4px 10px
-                rgba(0, 0, 0, 0.08);
+
+                0 8px 20px
+                rgba(0,90,150,0.20),
+
+                inset 0 2px 0
+                rgba(255,255,255,0.95),
+
+                inset 0 -8px 20px
+                rgba(0,210,255,0.08);
 
             transition:
-                transform 0.3s,
-                box-shadow 0.3s;
+                0.3s;
+        }
+
+
+        .postagem::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: -55px;
+            left: 10%;
+
+            width: 80%;
+            height: 70px;
+
+            background:
+                rgba(255,255,255,0.70);
+
+            border-radius: 50%;
+
+            filter: blur(8px);
+
+            pointer-events: none;
         }
 
 
         .postagem:hover {
 
             transform:
-                translateY(-5px);
+                translateY(-7px)
+                scale(1.01);
 
             box-shadow:
-                0 8px 18px
-                rgba(0, 0, 0, 0.12);
+
+                0 15px 30px
+                rgba(0,80,150,0.27),
+
+                0 0 18px
+                rgba(0,230,255,0.35),
+
+                inset 0 2px 0 white;
         }
 
 
@@ -319,9 +748,33 @@
 
             display: block;
 
-            margin-bottom: 10px;
+            width: fit-content;
 
-            font-size: 2rem;
+            margin-bottom: 12px;
+
+            padding: 8px 14px;
+
+            font-size: 2.2rem;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #ffffff,
+                    #b6f5ff
+                );
+
+            border:
+                2px solid
+                #65dce9;
+
+            border-radius: 50%;
+
+            box-shadow:
+
+                inset 0 2px 3px white,
+
+                0 5px 10px
+                rgba(0,90,150,0.2);
         }
 
 
@@ -329,9 +782,13 @@
 
             margin-bottom: 8px;
 
-            color: #285c55;
+            color:
+                #0070b3;
 
             font-size: 1.4rem;
+
+            text-shadow:
+                0 1px 0 white;
         }
 
 
@@ -339,14 +796,15 @@
 
             margin-bottom: 12px;
 
-            color: #55736f;
+            color:
+                #4e7e91;
 
             font-size: 0.9rem;
         }
 
 
         /* =====================================================
-           ÁREA DE CURTIDA
+           CURTIDAS
            ===================================================== */
 
         .acoes-postagem {
@@ -360,7 +818,8 @@
             padding-top: 15px;
 
             border-top:
-                1px solid #d4e8e3;
+                2px dashed
+                #81dbe5;
         }
 
 
@@ -369,17 +828,27 @@
             padding: 9px 15px;
 
             border:
-                2px solid #f2a7b8;
+                2px solid
+                #ff9fbb;
 
-            border-radius: 20px;
+            border-radius: 22px;
 
-            background-color: white;
+            background:
+                linear-gradient(
+                    180deg,
+                    #ffffff,
+                    #ffdfe9
+                );
 
-            color: #b84d6a;
+            color:
+                #d44970;
 
             font-weight: bold;
 
             cursor: pointer;
+
+            box-shadow:
+                inset 0 2px 0 white;
 
             transition: 0.25s;
         }
@@ -388,25 +857,30 @@
         .botao-curtir:hover {
 
             transform:
-                scale(1.05);
+                scale(1.07);
 
-            background-color:
-                #fff0f4;
+            box-shadow:
+                0 0 14px
+                rgba(255,90,150,0.45);
         }
 
 
         .botao-curtir.curtido {
 
-            background-color:
-                #ffdce6;
+            background:
+                linear-gradient(
+                    180deg,
+                    #ffcada,
+                    #ff9fbd
+                );
 
             color:
-                #d62959;
+                #c42358;
         }
 
 
         /* =====================================================
-           ÁREA DE COMENTÁRIOS
+           COMENTÁRIOS
            ===================================================== */
 
         .comentarios {
@@ -416,7 +890,8 @@
             padding-top: 18px;
 
             border-top:
-                1px solid #d4e8e3;
+                2px dashed
+                #81dbe5;
         }
 
 
@@ -424,7 +899,8 @@
 
             margin-bottom: 12px;
 
-            color: #285c55;
+            color:
+                #0070b3;
 
             font-size: 1.1rem;
         }
@@ -447,43 +923,56 @@
             min-width: 0;
 
             padding:
-                10px 12px;
+                10px 14px;
 
             border:
-                2px solid #b9dcd5;
+                2px solid
+                #6ed7e3;
 
-            border-radius: 20px;
+            border-radius: 22px;
 
             outline: none;
 
-            background-color: white;
+            background:
+                rgba(255,255,255,0.95);
 
-            color: #163d3a;
+            color:
+                #16465c;
+
+            box-shadow:
+                inset 0 2px 5px
+                rgba(0,90,150,0.10);
         }
 
 
         .form-comentario input:focus {
 
             border-color:
-                #4c9488;
+                #00a9d6;
 
             box-shadow:
-                0 0 5px
-                rgba(76, 148, 136, 0.3);
+                0 0 12px
+                rgba(0,210,255,0.35);
         }
 
 
         .botao-comentar {
 
             padding:
-                10px 15px;
+                10px 16px;
 
-            border: none;
+            border:
+                2px solid
+                rgba(255,255,255,0.75);
 
-            border-radius: 20px;
+            border-radius: 22px;
 
-            background-color:
-                #285c55;
+            background:
+                linear-gradient(
+                    180deg,
+                    #36ddf0,
+                    #007bbb
+                );
 
             color: white;
 
@@ -491,17 +980,28 @@
 
             cursor: pointer;
 
-            transition: 0.3s;
+            box-shadow:
+
+                inset 0 2px 0 white,
+
+                0 4px 8px
+                rgba(0,70,140,0.25);
+
+            transition: 0.25s;
         }
 
 
         .botao-comentar:hover {
 
-            background-color:
-                #36766d;
-
             transform:
-                scale(1.03);
+                scale(1.04);
+
+            filter:
+                brightness(1.15);
+
+            box-shadow:
+                0 0 14px
+                rgba(0,225,255,0.65);
         }
 
 
@@ -528,18 +1028,30 @@
             padding:
                 10px 40px 10px 12px;
 
-            background-color:
-                #eaf5f2;
+            background:
+                linear-gradient(
+                    90deg,
+                    #d8f9ff,
+                    #f4ffff
+                );
 
-            border-radius: 10px;
+            border:
+                1px solid
+                #8bdce5;
+
+            border-radius: 12px;
 
             font-size: 0.95rem;
+
+            box-shadow:
+                inset 0 1px 0 white;
         }
 
 
         .comentario-vazio {
 
-            color: #6d8580;
+            color:
+                #6c8c9a;
 
             font-size: 0.9rem;
 
@@ -552,14 +1064,14 @@
             position: absolute;
 
             top: 7px;
-
             right: 8px;
 
             border: none;
 
             background: transparent;
 
-            color: #b84d6a;
+            color:
+                #d44970;
 
             cursor: pointer;
 
@@ -569,7 +1081,8 @@
 
         .botao-excluir-comentario:hover {
 
-            color: #d62959;
+            color:
+                #ff245e;
         }
 
 
@@ -593,16 +1106,55 @@
 
         .fato {
 
-            padding: 22px;
+            position: relative;
+
+            padding: 25px;
 
             text-align: center;
 
-            background-color: #e9f7f3;
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.95),
+                    rgba(193,246,255,0.90),
+                    rgba(211,255,224,0.88)
+                );
 
             border:
-                2px solid #c5e5df;
+                2px solid
+                #6edce5;
 
-            border-radius: 15px;
+            border-radius: 22px;
+
+            box-shadow:
+
+                0 8px 18px
+                rgba(0,90,150,0.17),
+
+                inset 0 2px 0 white;
+        }
+
+
+        .fato::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: -25px;
+            left: 10%;
+
+            width: 80%;
+            height: 35px;
+
+            background:
+                rgba(255,255,255,0.7);
+
+            border-radius: 50%;
+
+            filter: blur(5px);
         }
 
 
@@ -613,6 +1165,12 @@
             margin-bottom: 10px;
 
             font-size: 2.5rem;
+
+            filter:
+                drop-shadow(
+                    0 3px 3px
+                    rgba(0,90,130,0.25)
+                );
         }
 
 
@@ -620,7 +1178,8 @@
 
             margin-bottom: 8px;
 
-            color: #285c55;
+            color:
+                #0070b3;
         }
 
 
@@ -640,14 +1199,46 @@
 
         .lista-dicas li {
 
-            padding: 15px 18px;
+            padding:
+                15px 18px;
 
-            background-color: #f1f8f6;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(217,250,255,0.96),
+                    rgba(248,255,255,0.94)
+                );
+
+            border:
+                1px solid
+                #89dce5;
 
             border-left:
-                5px solid #4c9488;
+                6px solid
+                #39d77a;
 
-            border-radius: 8px;
+            border-radius: 12px;
+
+            box-shadow:
+
+                0 5px 12px
+                rgba(0,90,150,0.10),
+
+                inset 0 1px 0 white;
+
+            transition:
+                0.2s;
+        }
+
+
+        .lista-dicas li:hover {
+
+            transform:
+                translateX(6px);
+
+            box-shadow:
+                0 7px 15px
+                rgba(0,90,150,0.17);
         }
 
 
@@ -657,20 +1248,71 @@
 
         footer {
 
+            position: relative;
+
             max-width: 1000px;
 
             margin: 0 auto 25px;
 
-            padding: 25px;
+            padding: 30px 25px;
 
             text-align: center;
 
+            overflow: hidden;
+
             color: white;
 
-            background-color: #285c55;
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(0,84,174,0.94),
+                    rgba(0,170,220,0.92),
+                    rgba(35,203,150,0.90)
+                );
+
+            border:
+                3px solid
+                rgba(255,255,255,0.8);
 
             border-radius:
-                0 0 18px 18px;
+                8px 8px 35px 35px;
+
+            box-shadow:
+
+                0 12px 30px
+                rgba(0,70,140,0.35),
+
+                inset 0 2px 0 white;
+        }
+
+
+        footer::before {
+
+            content:
+                "☁️     🌈     ☁️";
+
+            position: absolute;
+
+            top: 3px;
+            left: 0;
+
+            width: 100%;
+
+            font-size: 1.4rem;
+
+            opacity: 0.45;
+        }
+
+
+        footer p:first-child {
+
+            font-size: 1.2rem;
+
+            font-weight: bold;
+
+            text-shadow:
+                0 2px 3px
+                rgba(0,60,120,0.5);
         }
 
 
@@ -680,31 +1322,56 @@
 
         body.tema-escuro {
 
-            color: #e8f2f0;
+            color:
+                #ddfbff;
+
+            background:
+                linear-gradient(
+                    rgba(0,30,65,0.55),
+                    rgba(0,30,60,0.65)
+                ),
+                url("fundo-aqua.jpg")
+                center center /
+                cover
+                fixed
+                no-repeat;
 
             background-color:
-                #172522;
-        }
-
-
-        body.tema-escuro header {
-
-            background-color:
-                #193f3a;
-        }
-
-
-        body.tema-escuro nav {
-
-            background-color:
-                #102f2b;
+                #03243c;
         }
 
 
         body.tema-escuro main {
 
-            background-color:
-                #20312e;
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(3,35,55,0.95),
+                    rgba(3,53,65,0.94)
+                );
+        }
+
+
+        body.tema-escuro header {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(0,54,110,0.95),
+                    rgba(0,112,150,0.92),
+                    rgba(0,125,100,0.90)
+                );
+        }
+
+
+        body.tema-escuro nav {
+
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(0,60,100,0.98),
+                    rgba(0,31,65,0.98)
+                );
         }
 
 
@@ -712,31 +1379,43 @@
         .titulo-secao {
 
             color:
-                #78c8bb;
+                #69eaff;
 
             border-color:
-                #3d655e;
+                #087e94;
+
+            text-shadow:
+                0 0 10px
+                rgba(0,220,255,0.45);
         }
 
 
         body.tema-escuro
         .postagem {
 
-            background-color:
-                #29403b;
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(4,67,87,0.96),
+                    rgba(3,46,65,0.96)
+                );
 
             border-color:
-                #3d5b55;
+                #168ca0;
         }
 
 
         body.tema-escuro
         .postagem h3,
+
         body.tema-escuro
-        .comentarios h4 {
+        .comentarios h4,
+
+        body.tema-escuro
+        .fato h3 {
 
             color:
-                #78c8bb;
+                #72eaff;
         }
 
 
@@ -744,67 +1423,91 @@
         .autor {
 
             color:
-                #a8c3be;
+                #9ad2dd;
         }
 
 
         body.tema-escuro
         .acoes-postagem,
+
         body.tema-escuro
         .comentarios {
 
             border-color:
-                #3d5b55;
+                #17758a;
         }
 
 
         body.tema-escuro
         .form-comentario input {
 
-            background-color:
-                #203a35;
+            background:
+                #082f42;
 
-            color: white;
+            color:
+                white;
 
             border-color:
-                #4f7d75;
+                #168ea4;
         }
 
 
         body.tema-escuro
         .comentario {
 
-            background-color:
-                #203a35;
+            background:
+                linear-gradient(
+                    90deg,
+                    #094253,
+                    #073747
+                );
 
-            color: #e8f2f0;
+            border-color:
+                #177c8c;
+
+            color:
+                #ddfbff;
         }
 
 
         body.tema-escuro
         .fato {
 
-            background-color:
-                #29403b;
+            background:
+                linear-gradient(
+                    145deg,
+                    #094b5d,
+                    #073b4d
+                );
 
             border-color:
-                #3d5b55;
-        }
-
-
-        body.tema-escuro
-        .fato h3 {
-
-            color:
-                #78c8bb;
+                #168d9f;
         }
 
 
         body.tema-escuro
         .lista-dicas li {
 
-            background-color:
-                #29403b;
+            background:
+                linear-gradient(
+                    90deg,
+                    #094353,
+                    #073846
+                );
+
+            border-color:
+                #178293;
+
+            color:
+                #ddfbff;
+        }
+
+
+        body.tema-escuro
+        .comentario-vazio {
+
+            color:
+                #8cbac3;
         }
 
 
@@ -814,23 +1517,33 @@
 
         @media (max-width: 650px) {
 
+            body {
+
+                background-attachment:
+                    scroll;
+            }
+
+
             header {
 
                 margin-top: 0;
 
-                border-radius: 0;
+                border-radius:
+                    0 0 10px 10px;
             }
 
 
             header h1 {
 
-                font-size: 2rem;
+                font-size:
+                    2rem;
             }
 
 
             nav ul {
 
-                flex-direction: column;
+                flex-direction:
+                    column;
             }
 
 
@@ -840,7 +1553,8 @@
 
                 width: 100%;
 
-                text-align: center;
+                text-align:
+                    center;
             }
 
 
@@ -860,13 +1574,21 @@
 
             .form-comentario {
 
-                flex-direction: column;
+                flex-direction:
+                    column;
             }
 
 
             .botao-comentar {
 
                 width: 100%;
+            }
+
+
+            .destaque {
+
+                padding:
+                    25px 20px;
             }
 
         }
@@ -949,7 +1671,7 @@
 
 
     <!-- =====================================================
-         CONTEÚDO
+         CONTEÚDO PRINCIPAL
          ===================================================== -->
 
     <main>
@@ -1030,9 +1752,9 @@
             <div class="postagens">
 
 
-                <!-- ================================
+                <!-- =================================================
                      POSTAGEM 1
-                     ================================ -->
+                     ================================================= -->
 
                 <article
                     class="postagem"
@@ -1060,8 +1782,6 @@
                     </p>
 
 
-                    <!-- Ações -->
-
                     <div class="acoes-postagem">
 
                         <button class="botao-curtir">
@@ -1078,8 +1798,6 @@
 
                     </div>
 
-
-                    <!-- Comentários -->
 
                     <div class="comentarios">
 
@@ -1123,9 +1841,9 @@
                 </article>
 
 
-                <!-- ================================
+                <!-- =================================================
                      POSTAGEM 2
-                     ================================ -->
+                     ================================================= -->
 
                 <article
                     class="postagem"
@@ -1211,9 +1929,9 @@
                 </article>
 
 
-                <!-- ================================
+                <!-- =================================================
                      POSTAGEM 3
-                     ================================ -->
+                     ================================================= -->
 
                 <article
                     class="postagem"
@@ -1300,9 +2018,9 @@
                 </article>
 
 
-                <!-- ================================
+                <!-- =================================================
                      POSTAGEM 4
-                     ================================ -->
+                     ================================================= -->
 
                 <article
                     class="postagem"
@@ -1389,9 +2107,9 @@
                 </article>
 
 
-                <!-- ================================
+                <!-- =================================================
                      POSTAGEM 5
-                     ================================ -->
+                     ================================================= -->
 
                 <article
                     class="postagem"
@@ -1478,9 +2196,9 @@
                 </article>
 
 
-                <!-- ================================
+                <!-- =================================================
                      POSTAGEM 6
-                     ================================ -->
+                     ================================================= -->
 
                 <article
                     class="postagem"
@@ -1565,7 +2283,6 @@
 
                 </article>
 
-
             </div>
 
         </section>
@@ -1614,7 +2331,7 @@
 
 
         <!-- =================================================
-             FATOS
+             FATOS INTERESSANTES
              ================================================= -->
 
         <section
@@ -1752,7 +2469,6 @@
         );
 
 
-
         /* =====================================================
            SISTEMA DE CURTIDAS
            ===================================================== */
@@ -1782,11 +2498,6 @@
                     );
 
 
-                /*
-                    Recupera as curtidas
-                    salvas no navegador.
-                */
-
                 let curtidas =
                     Number(
                         localStorage.getItem(
@@ -1794,11 +2505,6 @@
                         )
                     ) || 0;
 
-
-                /*
-                    Verifica se o usuário
-                    já curtiu esta postagem.
-                */
 
                 let usuarioCurtiu =
                     localStorage.getItem(
@@ -1821,8 +2527,6 @@
                         `<span class="contador-curtidas">${curtidas}</span>`;
                 }
 
-
-                /* Clique no botão */
 
                 botaoCurtir.addEventListener(
                     "click",
@@ -1892,7 +2596,6 @@
                 );
 
 
-
                 /* =================================================
                    SISTEMA DE COMENTÁRIOS
                    ================================================= */
@@ -1919,11 +2622,6 @@
                     "comentarios-" + id;
 
 
-                /*
-                    Recupera comentários
-                    já existentes.
-                */
-
                 let comentarios =
                     JSON.parse(
                         localStorage.getItem(
@@ -1935,8 +2633,9 @@
                 mostrarComentarios();
 
 
-
-                /* Envio do comentário */
+                /* =================================================
+                   ENVIO DO COMENTÁRIO
+                   ================================================= */
 
                 formulario.addEventListener(
                     "submit",
@@ -1948,11 +2647,6 @@
                         const texto =
                             campo.value.trim();
 
-
-                        /*
-                            Não permite
-                            comentário vazio.
-                        */
 
                         if (texto === "") {
 
@@ -1966,43 +2660,27 @@
                         }
 
 
-                        /*
-                            Adiciona o comentário
-                            à lista.
-                        */
-
                         comentarios.push({
+
                             id:
                                 Date.now(),
 
                             texto:
                                 texto
+
                         });
 
-
-                        /*
-                            Salva no navegador.
-                        */
 
                         salvarComentarios();
 
 
-                        /*
-                            Atualiza a tela.
-                        */
-
                         mostrarComentarios();
 
-
-                        /*
-                            Limpa o campo.
-                        */
 
                         campo.value = "";
 
                     }
                 );
-
 
 
                 /* =================================================
@@ -2013,11 +2691,6 @@
 
                     lista.innerHTML = "";
 
-
-                    /*
-                        Caso não existam
-                        comentários.
-                    */
 
                     if (
                         comentarios.length === 0
@@ -2046,12 +2719,6 @@
                     }
 
 
-                    /*
-                        Mostra os comentários
-                        do mais recente para
-                        o mais antigo.
-                    */
-
                     comentarios
                         .slice()
                         .reverse()
@@ -2068,20 +2735,10 @@
                                     "comentario";
 
 
-                                /*
-                                    textContent é utilizado
-                                    para impedir que alguém
-                                    insira HTML no comentário.
-                                */
-
                                 item.textContent =
                                     "💬 " +
                                     comentario.texto;
 
-
-                                /*
-                                    Botão de excluir.
-                                */
 
                                 const excluir =
                                     document.createElement(
@@ -2127,7 +2784,6 @@
                 }
 
 
-
                 /* =================================================
                    SALVAR COMENTÁRIOS
                    ================================================= */
@@ -2142,7 +2798,6 @@
                     );
 
                 }
-
 
 
                 /* =================================================
