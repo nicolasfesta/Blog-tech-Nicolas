@@ -20,9 +20,9 @@
 
     <style>
 
-        /* =====================================================
+        /* =========================================================
            RESET
-           ===================================================== */
+           ========================================================= */
 
         * {
             box-sizing: border-box;
@@ -30,66 +30,43 @@
             padding: 0;
         }
 
-
         html {
             scroll-behavior: smooth;
         }
 
-
         body {
 
             font-family:
-                "Trebuchet MS",
                 Arial,
                 Helvetica,
                 sans-serif;
 
-            font-size: 16px;
+            min-height: 100vh;
 
-            line-height: 1.6;
-
-            color: #064b67;
-
-            /*
-                IMPORTANTE:
-
-                Coloque a imagem de referência
-                na mesma pasta deste HTML com
-                o nome:
-
-                fundo-aqua.jpg
-            */
+            color: #064b72;
 
             background:
                 linear-gradient(
-                    rgba(0, 185, 235, 0.18),
-                    rgba(0, 220, 255, 0.10)
-                ),
-                url("fundo-aqua.jpg")
-                center center /
-                cover
-                fixed
-                no-repeat;
+                    180deg,
+                    #05bde4 0%,
+                    #039ed2 28%,
+                    #007bc2 55%,
+                    #04b5d8 100%
+                );
 
-            background-color: #00bce8;
+            background-attachment: fixed;
 
             overflow-x: hidden;
 
             transition:
-                background 0.4s,
-                color 0.4s;
+                background 0.5s,
+                color 0.3s;
         }
 
 
-        button,
-        input {
-            font-family: inherit;
-        }
-
-
-        /* =====================================================
-           EFEITOS DECORATIVOS
-           ===================================================== */
+        /* =========================================================
+           BOLHAS DECORATIVAS
+           ========================================================= */
 
         body::before {
 
@@ -97,24 +74,23 @@
 
             position: fixed;
 
-            width: 260px;
-            height: 260px;
+            width: 180px;
+            height: 180px;
 
-            top: 5%;
-            left: -100px;
+            top: 30px;
+            left: -60px;
 
             border-radius: 50%;
 
             background:
                 radial-gradient(
-                    circle,
-                    rgba(255,255,255,0.85) 0%,
-                    rgba(255,255,255,0.35) 25%,
-                    rgba(255,255,255,0.05) 60%,
-                    transparent 75%
+                    circle at 35% 30%,
+                    rgba(255,255,255,0.8),
+                    rgba(255,255,255,0.18) 35%,
+                    transparent 70%
                 );
 
-            filter: blur(2px);
+            filter: blur(3px);
 
             pointer-events: none;
 
@@ -128,19 +104,19 @@
 
             position: fixed;
 
-            width: 320px;
-            height: 320px;
+            width: 230px;
+            height: 230px;
 
-            right: -120px;
-            bottom: 5%;
+            right: -90px;
+            bottom: 30px;
 
             border-radius: 50%;
 
             background:
                 radial-gradient(
-                    circle,
-                    rgba(0,255,220,0.35),
-                    rgba(0,190,255,0.15),
+                    circle at 35% 30%,
+                    rgba(255,255,255,0.75),
+                    rgba(255,255,255,0.15) 35%,
                     transparent 70%
                 );
 
@@ -150,52 +126,77 @@
         }
 
 
-        /* =====================================================
+        button,
+        input {
+
+            font-family: inherit;
+        }
+
+
+        /* =========================================================
+           CONTAINER PRINCIPAL
+           ========================================================= */
+
+        .site {
+
+            width: min(1000px, 94%);
+
+            margin:
+                24px auto 30px;
+
+            border-radius: 28px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 0 0 2px rgba(255,255,255,0.85),
+                0 0 18px rgba(255,255,255,0.65),
+                0 18px 45px rgba(0,72,130,0.45);
+        }
+
+
+        /* =========================================================
            CABEÇALHO
-           ===================================================== */
+           ========================================================= */
 
         header {
 
             position: relative;
 
-            max-width: 1000px;
-
-            margin: 25px auto 0;
-
-            padding: 45px 25px;
+            padding:
+                45px 25px 35px;
 
             text-align: center;
 
             color: white;
 
-            overflow: hidden;
-
             background:
+
+                radial-gradient(
+                    ellipse at 50% -30%,
+                    rgba(255,255,255,0.65),
+                    transparent 45%
+                ),
+
                 linear-gradient(
                     180deg,
-                    rgba(0,174,239,0.88),
-                    rgba(0,112,190,0.78)
+                    #18b9ec 0%,
+                    #049dd5 48%,
+                    #0084c8 100%
                 );
 
             border:
-                3px solid
-                rgba(255,255,255,0.85);
+                3px solid rgba(255,255,255,0.9);
 
-            border-radius:
-                35px 35px 8px 8px;
+            border-bottom: none;
 
             box-shadow:
-
-                0 12px 30px
-                rgba(0,80,160,0.40),
-
-                inset 0 3px 0
-                rgba(255,255,255,0.95),
-
-                inset 0 -15px 30px
-                rgba(0,190,255,0.25);
+                inset 0 8px 25px rgba(255,255,255,0.2),
+                inset 0 -10px 20px rgba(0,78,145,0.25);
         }
 
+
+        /* brilho superior */
 
         header::before {
 
@@ -203,49 +204,18 @@
 
             position: absolute;
 
-            top: -55px;
-            left: 10%;
+            top: 7px;
+            left: 12%;
 
-            width: 80%;
-            height: 100px;
-
-            background:
-                rgba(255,255,255,0.30);
+            width: 76%;
+            height: 28px;
 
             border-radius: 50%;
 
-            filter: blur(8px);
-        }
-
-
-        header::after {
-
-            content: "";
-
-            position: absolute;
-
-            left: 8%;
-            bottom: 8px;
-
-            width: 84%;
-            height: 5px;
-
             background:
-                linear-gradient(
-                    90deg,
-                    #ff5c8a,
-                    #ffd447,
-                    #65ed79,
-                    #35eaff,
-                    #7d7cff,
-                    #ff66c4
-                );
+                rgba(255,255,255,0.22);
 
-            border-radius: 50%;
-
-            box-shadow:
-                0 0 12px
-                rgba(255,255,255,0.9);
+            filter: blur(10px);
         }
 
 
@@ -253,18 +223,19 @@
 
             position: relative;
 
-            z-index: 2;
+            margin-bottom: 12px;
 
-            margin-bottom: 8px;
+            font-size:
+                clamp(2.2rem, 6vw, 3.5rem);
 
-            font-size: 2.8rem;
+            font-weight: 800;
 
             color: white;
 
             text-shadow:
-                0 3px 0 #006aa5,
-                0 0 10px #9fffff,
-                0 0 20px rgba(255,255,255,0.7);
+                0 3px 0 #0077b7,
+                0 0 8px rgba(255,255,255,0.9),
+                0 0 20px rgba(255,255,255,0.75);
         }
 
 
@@ -272,46 +243,73 @@
 
             position: relative;
 
-            z-index: 2;
-
-            font-size: 1.08rem;
-
-            color: white;
+            font-size: 1.05rem;
 
             text-shadow:
-                0 2px 3px
-                rgba(0,65,110,0.7);
+                0 2px 3px #006da6;
         }
 
 
-        /* =====================================================
-           MENU
-           ===================================================== */
+        /* =========================================================
+           ARCO-ÍRIS DECORATIVO
+           ========================================================= */
 
-        nav {
+        .arco {
 
-            max-width: 1000px;
+            height: 5px;
 
-            margin: 0 auto;
+            width: 82%;
 
-            padding: 12px 18px;
+            margin:
+                30px auto 0;
+
+            border-radius: 100%;
 
             background:
                 linear-gradient(
-                    180deg,
-                    rgba(0,132,205,0.95),
-                    rgba(0,78,155,0.96)
+                    90deg,
+                    #ff4f81,
+                    #ff8b3d,
+                    #ffe34d,
+                    #53e879,
+                    #45d8ff,
+                    #7e75ff,
+                    #ff63c3
                 );
 
-            border:
-                2px solid
-                rgba(255,255,255,0.75);
+            box-shadow:
+                0 0 8px rgba(255,255,255,0.9),
+                0 0 15px rgba(76,240,255,0.7);
+        }
 
-            border-top: none;
+
+        /* =========================================================
+           NAVEGAÇÃO
+           ========================================================= */
+
+        nav {
+
+            padding:
+                13px 18px;
+
+            background:
+
+                linear-gradient(
+                    180deg,
+                    #087fca 0%,
+                    #0064aa 50%,
+                    #00528e 100%
+                );
+
+            border-top:
+                2px solid rgba(255,255,255,0.7);
+
+            border-bottom:
+                2px solid rgba(255,255,255,0.75);
 
             box-shadow:
-                0 8px 22px
-                rgba(0,80,150,0.38);
+                inset 0 3px 8px rgba(255,255,255,0.18),
+                inset 0 -4px 10px rgba(0,40,90,0.35);
         }
 
 
@@ -331,326 +329,378 @@
         }
 
 
-        nav a {
+        nav button {
 
-            display: block;
+            position: relative;
 
-            padding: 9px 16px;
+            padding:
+                10px 17px;
+
+            border:
+                2px solid rgba(255,255,255,0.7);
+
+            border-radius: 18px;
 
             color: white;
 
-            text-decoration: none;
-
-            font-weight: bold;
-
-            border:
-                2px solid
-                rgba(255,255,255,0.50);
-
-            border-radius: 18px;
-
             background:
+
                 linear-gradient(
                     180deg,
-                    rgba(91,231,255,0.95),
-                    rgba(0,121,190,0.92)
+                    #55d8ff 0%,
+                    #1baddd 45%,
+                    #0789c4 55%,
+                    #006aa9 100%
                 );
 
             box-shadow:
 
-                inset 0 2px 0
-                rgba(255,255,255,0.9),
+                inset 0 2px 4px rgba(255,255,255,0.75),
 
-                inset 0 -4px 8px
-                rgba(0,70,150,0.25),
+                inset 0 -4px 6px rgba(0,76,130,0.3),
 
-                0 3px 7px
-                rgba(0,60,120,0.25);
+                0 2px 5px rgba(0,30,70,0.4);
 
-            text-shadow:
-                0 1px 2px
-                rgba(0,50,100,0.7);
-
-            transition:
-                0.25s;
-        }
-
-
-        nav a:hover {
-
-            transform:
-                translateY(-3px)
-                scale(1.03);
-
-            background:
-                linear-gradient(
-                    180deg,
-                    #ffffff,
-                    #66eaff
-                );
-
-            color:
-                #006ca5;
-
-            box-shadow:
-
-                0 0 15px
-                rgba(255,255,255,0.95),
-
-                0 0 25px
-                rgba(0,225,255,0.7);
-        }
-
-
-        /* =====================================================
-           BOTÃO DE TEMA
-           ===================================================== */
-
-        #botao-tema {
-
-            padding: 9px 16px;
-
-            border:
-                2px solid
-                rgba(255,255,255,0.8);
-
-            border-radius: 18px;
-
-            background:
-                linear-gradient(
-                    180deg,
-                    #ffffff,
-                    #bdf7ff
-                );
-
-            color:
-                #006aa5;
+            font-size: 1rem;
 
             font-weight: bold;
 
             cursor: pointer;
 
-            box-shadow:
+            text-shadow:
+                0 1px 2px #00608e;
 
-                inset 0 2px 0 white,
-
-                0 4px 10px
-                rgba(0,70,140,0.3);
-
-            transition: 0.25s;
+            transition:
+                transform 0.2s,
+                filter 0.2s,
+                box-shadow 0.2s;
         }
 
 
-        #botao-tema:hover {
+        nav button:hover {
 
             transform:
-                scale(1.06);
+                translateY(-2px);
+
+            filter:
+                brightness(1.15);
 
             box-shadow:
 
-                0 0 15px
-                rgba(255,255,255,0.9),
+                inset 0 2px 5px rgba(255,255,255,0.8),
 
-                0 0 20px
-                rgba(0,230,255,0.6);
+                0 0 10px rgba(116,232,255,0.75),
+
+                0 4px 8px rgba(0,40,90,0.35);
         }
 
 
-        /* =====================================================
-           CONTEÚDO PRINCIPAL
-           ===================================================== */
+        nav button.ativo {
+
+            background:
+
+                linear-gradient(
+                    180deg,
+                    #dffbff 0%,
+                    #9cecff 45%,
+                    #45cbe9 55%,
+                    #0795cc 100%
+                );
+
+            color: #00517d;
+
+            text-shadow:
+                0 1px 1px white;
+
+            box-shadow:
+
+                inset 0 3px 6px white,
+
+                inset 0 -3px 7px rgba(0,80,130,0.25),
+
+                0 0 12px rgba(140,242,255,0.9);
+        }
+
+
+        #botao-tema {
+
+            color: #07527c;
+
+            background:
+
+                linear-gradient(
+                    180deg,
+                    #ffffff 0%,
+                    #e5faff 50%,
+                    #b8eefa 100%
+                );
+
+            text-shadow: none;
+        }
+
+
+        /* =========================================================
+           ÁREA DE CONTEÚDO
+           ========================================================= */
 
         main {
 
-            max-width: 1000px;
+            position: relative;
 
-            margin: 0 auto;
+            min-height: 650px;
 
             padding:
-                35px 30px 50px;
+                35px 35px 50px;
 
             background:
+
+                radial-gradient(
+                    ellipse at 50% 0%,
+                    rgba(255,255,255,0.95),
+                    transparent 35%
+                ),
+
                 linear-gradient(
                     180deg,
-                    rgba(238,255,255,0.94),
-                    rgba(211,250,255,0.91)
+                    #e9fcff 0%,
+                    #d5f7fc 40%,
+                    #e9fbfa 100%
                 );
 
             border-left:
-                3px solid
-                rgba(255,255,255,0.8);
+                2px solid rgba(255,255,255,0.7);
 
             border-right:
-                3px solid
-                rgba(255,255,255,0.8);
-
-            box-shadow:
-
-                0 0 35px
-                rgba(0,80,160,0.30),
-
-                inset 0 0 30px
-                rgba(0,210,255,0.08);
+                2px solid rgba(255,255,255,0.7);
         }
 
 
-        .secao {
+        /* brilho decorativo */
 
-            margin-bottom: 50px;
-
-            scroll-margin-top: 20px;
-        }
-
-
-        /* =====================================================
-           TÍTULOS DAS SEÇÕES
-           ===================================================== */
-
-        .titulo-secao {
-
-            position: relative;
-
-            margin-bottom: 22px;
-
-            padding-bottom: 10px;
-
-            color:
-                #0071b8;
-
-            font-size: 2rem;
-
-            text-shadow:
-                0 1px 0 white,
-                0 0 8px
-                rgba(0,220,255,0.25);
-
-            border-bottom:
-                4px solid
-                #49dce8;
-        }
-
-
-        .titulo-secao::after {
+        main::before {
 
             content: "";
 
             position: absolute;
 
-            left: 0;
-            bottom: -4px;
+            top: 15px;
+            left: 4%;
 
-            width: 100px;
-            height: 4px;
+            width: 92%;
+            height: 20px;
+
+            border-radius: 50%;
 
             background:
-                linear-gradient(
-                    90deg,
-                    #ff5e8a,
-                    #ffd83d,
-                    #55e878,
-                    #31dfff,
-                    #777bff
-                );
+                rgba(255,255,255,0.65);
 
-            border-radius: 10px;
+            filter: blur(12px);
+
+            pointer-events: none;
         }
 
 
-        /* =====================================================
-           DESTAQUE
-           ===================================================== */
+        /* =========================================================
+           ABAS
+           ========================================================= */
+
+        .pagina {
+
+            display: none;
+
+            animation:
+                entrarPagina 0.4s ease;
+        }
+
+
+        .pagina.ativa {
+
+            display: block;
+        }
+
+
+        @keyframes entrarPagina {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(12px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+        /* =========================================================
+           TÍTULOS
+           ========================================================= */
+
+        .titulo-secao {
+
+            margin-bottom: 25px;
+
+            padding-bottom: 12px;
+
+            color: #0073aa;
+
+            font-size:
+                clamp(1.8rem, 4vw, 2.4rem);
+
+            text-shadow:
+                0 1px 0 white,
+                0 0 5px rgba(0,180,230,0.35);
+
+            border-bottom:
+                4px solid transparent;
+
+            border-image:
+                linear-gradient(
+                    90deg,
+                    #00bce8,
+                    #58e5e9,
+                    #79d67b,
+                    #00bce8
+                ) 1;
+        }
+
+
+        /* =========================================================
+           DESTAQUE / INÍCIO
+           ========================================================= */
 
         .destaque {
 
             position: relative;
 
-            padding: 35px;
-
-            margin-bottom: 35px;
-
             overflow: hidden;
+
+            padding:
+                35px;
+
+            margin-bottom: 25px;
 
             color: white;
 
+            border:
+                3px solid rgba(255,255,255,0.85);
+
+            border-radius: 25px;
+
             background:
+
+                radial-gradient(
+                    circle at 15% 20%,
+                    rgba(255,255,255,0.5),
+                    transparent 18%
+                ),
+
                 linear-gradient(
                     135deg,
-                    rgba(0,110,205,0.92),
-                    rgba(0,203,240,0.88),
-                    rgba(32,220,165,0.82)
+                    #00c8ef 0%,
+                    #009ed8 45%,
+                    #006cb4 100%
                 );
-
-            border:
-                3px solid
-                rgba(255,255,255,0.85);
-
-            border-radius: 28px;
 
             box-shadow:
 
-                0 12px 28px
-                rgba(0,90,150,0.35),
+                inset 0 4px 12px rgba(255,255,255,0.45),
 
-                inset 0 3px 0
-                rgba(255,255,255,0.9);
-        }
+                inset 0 -10px 18px rgba(0,60,120,0.25),
 
-
-        .destaque::before {
-
-            content:
-                "☁️   🌈   ☁️";
-
-            position: absolute;
-
-            right: 20px;
-            top: 4px;
-
-            font-size: 2.8rem;
-
-            opacity: 0.55;
-
-            filter:
-                drop-shadow(
-                    0 3px 3px
-                    rgba(0,70,130,0.3)
-                );
+                0 8px 20px rgba(0,110,160,0.25);
         }
 
 
         .destaque::after {
 
-            content:
-                "💧  💧  💧";
+            content: "✦  ✧  ✦  ✧  ✦";
 
             position: absolute;
 
             right: 20px;
-            bottom: 5px;
+            bottom: 8px;
 
-            font-size: 1.8rem;
+            color:
+                rgba(255,255,255,0.5);
 
-            opacity: 0.35;
+            font-size: 1.3rem;
+
+            letter-spacing: 8px;
         }
 
 
         .destaque h2 {
 
-            position: relative;
+            margin-bottom: 12px;
 
-            z-index: 2;
-
-            margin-bottom: 10px;
+            font-size: 1.8rem;
 
             text-shadow:
-                0 2px 3px
-                rgba(0,70,120,0.6);
+                0 2px 3px #00699e,
+                0 0 10px rgba(255,255,255,0.6);
         }
 
 
-        /* =====================================================
+        .destaque p {
+
+            max-width: 750px;
+
+            font-size: 1.05rem;
+
+            text-shadow:
+                0 1px 2px #00699e;
+        }
+
+
+        /* =========================================================
+           CAIXAS
+           ========================================================= */
+
+        .caixa {
+
+            padding: 25px;
+
+            margin-bottom: 20px;
+
+            border:
+                2px solid #a6e8f5;
+
+            border-radius: 20px;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(255,255,255,0.95),
+                    rgba(222,248,252,0.92)
+                );
+
+            box-shadow:
+
+                inset 0 2px 7px rgba(255,255,255,0.9),
+
+                0 5px 15px rgba(0,115,160,0.12);
+        }
+
+
+        .caixa p {
+
+            color: #245f78;
+
+            line-height: 1.75;
+        }
+
+
+        /* =========================================================
            POSTAGENS
-           ===================================================== */
+           ========================================================= */
 
         .postagens {
 
@@ -662,7 +712,7 @@
                     minmax(280px, 1fr)
                 );
 
-            gap: 25px;
+            gap: 22px;
         }
 
 
@@ -670,36 +720,32 @@
 
             position: relative;
 
-            padding: 25px;
-
             overflow: hidden;
 
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255,255,255,0.94),
-                    rgba(208,249,255,0.88)
-                );
+            padding: 25px;
 
             border:
-                2px solid
-                rgba(48,205,230,0.65);
+                2px solid #9de4f3;
 
             border-radius: 22px;
 
+            background:
+
+                linear-gradient(
+                    180deg,
+                    rgba(255,255,255,0.98),
+                    #e5faff
+                );
+
             box-shadow:
 
-                0 8px 20px
-                rgba(0,90,150,0.20),
+                inset 0 3px 7px rgba(255,255,255,0.95),
 
-                inset 0 2px 0
-                rgba(255,255,255,0.95),
-
-                inset 0 -8px 20px
-                rgba(0,210,255,0.08);
+                0 6px 15px rgba(0,100,150,0.15);
 
             transition:
-                0.3s;
+                transform 0.3s,
+                box-shadow 0.3s;
         }
 
 
@@ -709,38 +755,37 @@
 
             position: absolute;
 
-            top: -55px;
-            left: 10%;
+            top: 0;
+            left: 0;
 
-            width: 80%;
-            height: 70px;
+            width: 100%;
+            height: 8px;
 
             background:
-                rgba(255,255,255,0.70);
 
-            border-radius: 50%;
-
-            filter: blur(8px);
-
-            pointer-events: none;
+                linear-gradient(
+                    90deg,
+                    #00bde9,
+                    #4ee5e4,
+                    #8be17c,
+                    #ffdf55,
+                    #ff82b5
+                );
         }
 
 
         .postagem:hover {
 
             transform:
-                translateY(-7px)
-                scale(1.01);
+                translateY(-6px);
 
             box-shadow:
 
-                0 15px 30px
-                rgba(0,80,150,0.27),
+                inset 0 3px 8px white,
 
-                0 0 18px
-                rgba(0,230,255,0.35),
+                0 12px 25px rgba(0,100,155,0.25),
 
-                inset 0 2px 0 white;
+                0 0 12px rgba(77,220,245,0.35);
         }
 
 
@@ -748,33 +793,13 @@
 
             display: block;
 
-            width: fit-content;
+            margin:
+                5px 0 12px;
 
-            margin-bottom: 12px;
+            font-size: 2.8rem;
 
-            padding: 8px 14px;
-
-            font-size: 2.2rem;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    #ffffff,
-                    #b6f5ff
-                );
-
-            border:
-                2px solid
-                #65dce9;
-
-            border-radius: 50%;
-
-            box-shadow:
-
-                inset 0 2px 3px white,
-
-                0 5px 10px
-                rgba(0,90,150,0.2);
+            filter:
+                drop-shadow(0 3px 3px rgba(0,110,160,0.25));
         }
 
 
@@ -782,13 +807,12 @@
 
             margin-bottom: 8px;
 
-            color:
-                #0070b3;
+            color: #0073aa;
 
-            font-size: 1.4rem;
+            font-size: 1.45rem;
 
             text-shadow:
-                0 1px 0 white;
+                0 1px white;
         }
 
 
@@ -796,59 +820,60 @@
 
             margin-bottom: 12px;
 
-            color:
-                #4e7e91;
+            color: #4f8295;
 
             font-size: 0.9rem;
         }
 
 
-        /* =====================================================
+        .postagem > p:not(.autor) {
+
+            color: #265e76;
+
+            line-height: 1.65;
+        }
+
+
+        /* =========================================================
            CURTIDAS
-           ===================================================== */
+           ========================================================= */
 
         .acoes-postagem {
-
-            display: flex;
-
-            gap: 10px;
 
             margin-top: 20px;
 
             padding-top: 15px;
 
             border-top:
-                2px dashed
-                #81dbe5;
+                2px solid #bcebf4;
         }
 
 
         .botao-curtir {
 
-            padding: 9px 15px;
+            padding:
+                9px 16px;
 
             border:
-                2px solid
-                #ff9fbb;
+                2px solid #ff9fc3;
 
-            border-radius: 22px;
+            border-radius: 20px;
 
             background:
                 linear-gradient(
                     180deg,
-                    #ffffff,
-                    #ffdfe9
+                    #fff,
+                    #ffeef5
                 );
 
-            color:
-                #d44970;
+            color: #d34876;
 
             font-weight: bold;
 
             cursor: pointer;
 
             box-shadow:
-                inset 0 2px 0 white;
+                inset 0 2px 4px white;
 
             transition: 0.25s;
         }
@@ -857,11 +882,10 @@
         .botao-curtir:hover {
 
             transform:
-                scale(1.07);
+                scale(1.05);
 
             box-shadow:
-                0 0 14px
-                rgba(255,90,150,0.45);
+                0 0 10px rgba(255,112,164,0.4);
         }
 
 
@@ -870,18 +894,17 @@
             background:
                 linear-gradient(
                     180deg,
-                    #ffcada,
-                    #ff9fbd
+                    #fff,
+                    #ffcfe0
                 );
 
-            color:
-                #c42358;
+            color: #d32159;
         }
 
 
-        /* =====================================================
+        /* =========================================================
            COMENTÁRIOS
-           ===================================================== */
+           ========================================================= */
 
         .comentarios {
 
@@ -890,8 +913,7 @@
             padding-top: 18px;
 
             border-top:
-                2px dashed
-                #81dbe5;
+                2px solid #bcebf4;
         }
 
 
@@ -899,10 +921,7 @@
 
             margin-bottom: 12px;
 
-            color:
-                #0070b3;
-
-            font-size: 1.1rem;
+            color: #0073aa;
         }
 
 
@@ -926,33 +945,27 @@
                 10px 14px;
 
             border:
-                2px solid
-                #6ed7e3;
+                2px solid #8ddcec;
 
-            border-radius: 22px;
+            border-radius: 20px;
 
             outline: none;
 
-            background:
-                rgba(255,255,255,0.95);
+            color: #075271;
 
-            color:
-                #16465c;
+            background: white;
 
             box-shadow:
-                inset 0 2px 5px
-                rgba(0,90,150,0.10);
+                inset 0 2px 5px rgba(0,120,160,0.08);
         }
 
 
         .form-comentario input:focus {
 
-            border-color:
-                #00a9d6;
+            border-color: #00aeda;
 
             box-shadow:
-                0 0 12px
-                rgba(0,210,255,0.35);
+                0 0 8px rgba(0,185,230,0.35);
         }
 
 
@@ -962,52 +975,37 @@
                 10px 16px;
 
             border:
-                2px solid
-                rgba(255,255,255,0.75);
+                2px solid #6dd5ef;
 
-            border-radius: 22px;
+            border-radius: 20px;
+
+            color: white;
 
             background:
                 linear-gradient(
                     180deg,
-                    #36ddf0,
-                    #007bbb
+                    #34cbed,
+                    #008dca
                 );
-
-            color: white;
 
             font-weight: bold;
 
             cursor: pointer;
 
             box-shadow:
-
-                inset 0 2px 0 white,
-
-                0 4px 8px
-                rgba(0,70,140,0.25);
-
-            transition: 0.25s;
+                inset 0 2px 4px rgba(255,255,255,0.55);
         }
 
 
         .botao-comentar:hover {
 
-            transform:
-                scale(1.04);
-
             filter:
-                brightness(1.15);
+                brightness(1.1);
 
-            box-shadow:
-                0 0 14px
-                rgba(0,225,255,0.65);
+            transform:
+                translateY(-1px);
         }
 
-
-        /* =====================================================
-           LISTA DE COMENTÁRIOS
-           ===================================================== */
 
         .lista-comentarios {
 
@@ -1028,30 +1026,25 @@
             padding:
                 10px 40px 10px 12px;
 
+            color: #256079;
+
             background:
                 linear-gradient(
                     90deg,
-                    #d8f9ff,
-                    #f4ffff
+                    #d9f6fb,
+                    #effdff
                 );
 
             border:
-                1px solid
-                #8bdce5;
+                1px solid #a8e4ee;
 
             border-radius: 12px;
-
-            font-size: 0.95rem;
-
-            box-shadow:
-                inset 0 1px 0 white;
         }
 
 
         .comentario-vazio {
 
-            color:
-                #6c8c9a;
+            color: #6c9aaa;
 
             font-size: 0.9rem;
 
@@ -1070,25 +1063,88 @@
 
             background: transparent;
 
-            color:
-                #d44970;
+            color: #d34876;
 
             cursor: pointer;
-
-            font-size: 0.9rem;
         }
 
 
-        .botao-excluir-comentario:hover {
+        /* =========================================================
+           SAIBA MAIS
+           ========================================================= */
 
-            color:
-                #ff245e;
+        .lista-dicas {
+
+            display: grid;
+
+            gap: 16px;
+
+            list-style: none;
         }
 
 
-        /* =====================================================
-           FATOS INTERESSANTES
-           ===================================================== */
+        .lista-dicas li {
+
+            position: relative;
+
+            padding:
+                18px 20px 18px 55px;
+
+            color: #1e6079;
+
+            border:
+                2px solid #9de3f0;
+
+            border-radius: 18px;
+
+            background:
+
+                linear-gradient(
+                    90deg,
+                    #ffffff,
+                    #dff8fc
+                );
+
+            box-shadow:
+
+                inset 0 2px 5px white,
+
+                0 4px 10px rgba(0,110,150,0.1);
+
+            transition:
+                transform 0.2s;
+        }
+
+
+        .lista-dicas li:hover {
+
+            transform:
+                translateX(5px);
+
+            border-color:
+                #42cde9;
+        }
+
+
+        .lista-dicas li::before {
+
+            content: "🌊";
+
+            position: absolute;
+
+            left: 18px;
+            top: 50%;
+
+            transform:
+                translateY(-50%);
+
+            font-size: 1.5rem;
+        }
+
+
+        /* =========================================================
+           FATOS
+           ========================================================= */
 
         .fatos {
 
@@ -1106,55 +1162,38 @@
 
         .fato {
 
-            position: relative;
-
             padding: 25px;
 
             text-align: center;
 
-            overflow: hidden;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255,255,255,0.95),
-                    rgba(193,246,255,0.90),
-                    rgba(211,255,224,0.88)
-                );
-
             border:
-                2px solid
-                #6edce5;
+                2px solid #9be5f1;
 
             border-radius: 22px;
 
+            background:
+
+                linear-gradient(
+                    180deg,
+                    #ffffff,
+                    #dff8fb
+                );
+
             box-shadow:
 
-                0 8px 18px
-                rgba(0,90,150,0.17),
+                inset 0 3px 8px white,
 
-                inset 0 2px 0 white;
+                0 6px 15px rgba(0,100,150,0.14);
+
+            transition:
+                transform 0.25s;
         }
 
 
-        .fato::before {
+        .fato:hover {
 
-            content: "";
-
-            position: absolute;
-
-            top: -25px;
-            left: 10%;
-
-            width: 80%;
-            height: 35px;
-
-            background:
-                rgba(255,255,255,0.7);
-
-            border-radius: 50%;
-
-            filter: blur(5px);
+            transform:
+                translateY(-5px);
         }
 
 
@@ -1164,13 +1203,10 @@
 
             margin-bottom: 10px;
 
-            font-size: 2.5rem;
+            font-size: 3rem;
 
             filter:
-                drop-shadow(
-                    0 3px 3px
-                    rgba(0,90,130,0.25)
-                );
+                drop-shadow(0 3px 3px rgba(0,100,150,0.2));
         }
 
 
@@ -1178,188 +1214,89 @@
 
             margin-bottom: 8px;
 
-            color:
-                #0070b3;
+            color: #0075aa;
         }
 
 
-        /* =====================================================
-           SAIBA MAIS
-           ===================================================== */
+        .fato p {
 
-        .lista-dicas {
+            color: #346c7e;
 
-            display: grid;
-
-            gap: 15px;
-
-            list-style: none;
+            line-height: 1.6;
         }
 
 
-        .lista-dicas li {
-
-            padding:
-                15px 18px;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    rgba(217,250,255,0.96),
-                    rgba(248,255,255,0.94)
-                );
-
-            border:
-                1px solid
-                #89dce5;
-
-            border-left:
-                6px solid
-                #39d77a;
-
-            border-radius: 12px;
-
-            box-shadow:
-
-                0 5px 12px
-                rgba(0,90,150,0.10),
-
-                inset 0 1px 0 white;
-
-            transition:
-                0.2s;
-        }
-
-
-        .lista-dicas li:hover {
-
-            transform:
-                translateX(6px);
-
-            box-shadow:
-                0 7px 15px
-                rgba(0,90,150,0.17);
-        }
-
-
-        /* =====================================================
+        /* =========================================================
            RODAPÉ
-           ===================================================== */
+           ========================================================= */
 
         footer {
 
-            position: relative;
-
-            max-width: 1000px;
-
-            margin: 0 auto 25px;
-
-            padding: 30px 25px;
+            padding:
+                28px 20px;
 
             text-align: center;
-
-            overflow: hidden;
 
             color: white;
 
             background:
+
                 linear-gradient(
-                    135deg,
-                    rgba(0,84,174,0.94),
-                    rgba(0,170,220,0.92),
-                    rgba(35,203,150,0.90)
+                    180deg,
+                    #007ebd,
+                    #005a99
                 );
 
             border:
-                3px solid
-                rgba(255,255,255,0.8);
+                2px solid rgba(255,255,255,0.7);
 
-            border-radius:
-                8px 8px 35px 35px;
+            border-top: none;
+
+            text-shadow:
+                0 2px 2px #004f82;
 
             box-shadow:
-
-                0 12px 30px
-                rgba(0,70,140,0.35),
-
-                inset 0 2px 0 white;
-        }
-
-
-        footer::before {
-
-            content:
-                "☁️     🌈     ☁️";
-
-            position: absolute;
-
-            top: 3px;
-            left: 0;
-
-            width: 100%;
-
-            font-size: 1.4rem;
-
-            opacity: 0.45;
+                inset 0 4px 10px rgba(255,255,255,0.15);
         }
 
 
         footer p:first-child {
 
+            margin-bottom: 5px;
+
             font-size: 1.2rem;
 
             font-weight: bold;
-
-            text-shadow:
-                0 2px 3px
-                rgba(0,60,120,0.5);
         }
 
 
-        /* =====================================================
+        /* =========================================================
            TEMA ESCURO
-           ===================================================== */
+           ========================================================= */
 
         body.tema-escuro {
 
-            color:
-                #ddfbff;
-
             background:
-                linear-gradient(
-                    rgba(0,30,65,0.55),
-                    rgba(0,30,60,0.65)
-                ),
-                url("fundo-aqua.jpg")
-                center center /
-                cover
-                fixed
-                no-repeat;
 
-            background-color:
-                #03243c;
-        }
-
-
-        body.tema-escuro main {
-
-            background:
                 linear-gradient(
                     180deg,
-                    rgba(3,35,55,0.95),
-                    rgba(3,53,65,0.94)
+                    #062e4d,
+                    #004b75,
+                    #062c49
                 );
+
+            color: #e7fbff;
         }
 
 
         body.tema-escuro header {
 
             background:
+
                 linear-gradient(
-                    135deg,
-                    rgba(0,54,110,0.95),
-                    rgba(0,112,150,0.92),
-                    rgba(0,125,100,0.90)
+                    180deg,
+                    #087da9,
+                    #05567e
                 );
         }
 
@@ -1367,74 +1304,83 @@
         body.tema-escuro nav {
 
             background:
+
                 linear-gradient(
                     180deg,
-                    rgba(0,60,100,0.98),
-                    rgba(0,31,65,0.98)
+                    #075a83,
+                    #033b60
                 );
         }
 
 
-        body.tema-escuro
-        .titulo-secao {
-
-            color:
-                #69eaff;
-
-            border-color:
-                #087e94;
-
-            text-shadow:
-                0 0 10px
-                rgba(0,220,255,0.45);
-        }
-
-
-        body.tema-escuro
-        .postagem {
+        body.tema-escuro main {
 
             background:
+
                 linear-gradient(
-                    145deg,
-                    rgba(4,67,87,0.96),
-                    rgba(3,46,65,0.96)
+                    180deg,
+                    #123f5a,
+                    #0d344c
+                );
+        }
+
+
+        body.tema-escuro .titulo-secao {
+
+            color: #75e5ff;
+        }
+
+
+        body.tema-escuro .caixa,
+        body.tema-escuro .postagem,
+        body.tema-escuro .fato,
+        body.tema-escuro .lista-dicas li {
+
+            color: #e4faff;
+
+            background:
+
+                linear-gradient(
+                    180deg,
+                    #174c68,
+                    #123c55
                 );
 
             border-color:
-                #168ca0;
+                #318daf;
         }
 
 
-        body.tema-escuro
-        .postagem h3,
+        body.tema-escuro .caixa p,
+        body.tema-escuro .postagem > p:not(.autor),
+        body.tema-escuro .fato p,
+        body.tema-escuro .lista-dicas li {
 
-        body.tema-escuro
-        .comentarios h4,
-
-        body.tema-escuro
-        .fato h3 {
-
-            color:
-                #72eaff;
+            color: #d6f4fc;
         }
 
 
-        body.tema-escuro
-        .autor {
+        body.tema-escuro .postagem h3,
+        body.tema-escuro .comentarios h4,
+        body.tema-escuro .fato h3 {
 
-            color:
-                #9ad2dd;
+            color: #73e4ff;
+        }
+
+
+        body.tema-escuro .autor {
+
+            color: #a9d4e4;
         }
 
 
         body.tema-escuro
         .acoes-postagem,
-
         body.tema-escuro
         .comentarios {
 
             border-color:
-                #17758a;
+                #286b86;
         }
 
 
@@ -1442,119 +1388,69 @@
         .form-comentario input {
 
             background:
-                #082f42;
+                #0d344b;
 
-            color:
-                white;
+            color: white;
 
             border-color:
-                #168ea4;
+                #3989a8;
         }
 
 
-        body.tema-escuro
-        .comentario {
+        body.tema-escuro .comentario {
+
+            color: #d9f6ff;
 
             background:
-                linear-gradient(
-                    90deg,
-                    #094253,
-                    #073747
-                );
+                #123f56;
 
             border-color:
-                #177c8c;
-
-            color:
-                #ddfbff;
+                #2d718c;
         }
 
 
-        body.tema-escuro
-        .fato {
-
-            background:
-                linear-gradient(
-                    145deg,
-                    #094b5d,
-                    #073b4d
-                );
-
-            border-color:
-                #168d9f;
-        }
-
-
-        body.tema-escuro
-        .lista-dicas li {
-
-            background:
-                linear-gradient(
-                    90deg,
-                    #094353,
-                    #073846
-                );
-
-            border-color:
-                #178293;
-
-            color:
-                #ddfbff;
-        }
-
-
-        body.tema-escuro
-        .comentario-vazio {
-
-            color:
-                #8cbac3;
-        }
-
-
-        /* =====================================================
+        /* =========================================================
            RESPONSIVIDADE
-           ===================================================== */
+           ========================================================= */
 
-        @media (max-width: 650px) {
+        @media (max-width: 700px) {
 
-            body {
+            .site {
 
-                background-attachment:
-                    scroll;
+                width: 100%;
+
+                margin:
+                    0 auto;
+
+                border-radius: 0;
             }
 
 
             header {
 
-                margin-top: 0;
-
-                border-radius:
-                    0 0 10px 10px;
+                border-radius: 0;
             }
 
 
             header h1 {
 
-                font-size:
-                    2rem;
+                font-size: 2.1rem;
             }
 
 
             nav ul {
 
-                flex-direction:
-                    column;
+                gap: 7px;
             }
 
 
-            nav li,
-            nav a,
-            #botao-tema {
+            nav button {
 
-                width: 100%;
+                padding:
+                    9px 12px;
 
-                text-align:
-                    center;
+                font-size:
+                    0.9rem;
             }
 
 
@@ -1562,6 +1458,12 @@
 
                 padding:
                     25px 15px 40px;
+            }
+
+
+            .destaque {
+
+                padding: 25px;
             }
 
 
@@ -1574,8 +1476,7 @@
 
             .form-comentario {
 
-                flex-direction:
-                    column;
+                flex-direction: column;
             }
 
 
@@ -1583,14 +1484,52 @@
 
                 width: 100%;
             }
+        }
 
 
-            .destaque {
+        @media (max-width: 480px) {
 
-                padding:
-                    25px 20px;
+            nav ul {
+
+                display: grid;
+
+                grid-template-columns:
+                    repeat(2, 1fr);
             }
 
+
+            nav button {
+
+                width: 100%;
+            }
+
+
+            #botao-tema {
+
+                grid-column:
+                    1 / -1;
+            }
+
+
+            header {
+
+                padding:
+                    35px 15px 25px;
+            }
+
+
+            header h1 {
+
+                font-size:
+                    1.9rem;
+            }
+
+
+            .destaque h2 {
+
+                font-size:
+                    1.45rem;
+            }
         }
 
     </style>
@@ -1598,12 +1537,15 @@
 </head>
 
 
-<body id="inicio">
+<body>
 
 
-    <!-- =====================================================
+<div class="site">
+
+
+    <!-- =========================================================
          CABEÇALHO
-         ===================================================== -->
+         ========================================================= -->
 
     <header>
 
@@ -1612,57 +1554,76 @@
         </h1>
 
         <p>
-            Fatos, curiosidades e informações
-            sobre o meio ambiente.
+            Fatos, curiosidades e informações sobre o meio ambiente.
         </p>
+
+        <div class="arco"></div>
 
     </header>
 
 
-    <!-- =====================================================
-         MENU
-         ===================================================== -->
+    <!-- =========================================================
+         MENU / ABAS
+         ========================================================= -->
 
     <nav>
 
         <ul>
 
             <li>
-                <a href="#inicio">
+                <button
+                    class="aba ativo"
+                    data-pagina="inicio"
+                >
                     🏠 Início
-                </a>
+                </button>
             </li>
 
+
             <li>
-                <a href="#sobre">
+                <button
+                    class="aba"
+                    data-pagina="sobre"
+                >
                     🌱 Sobre
-                </a>
+                </button>
             </li>
 
+
             <li>
-                <a href="#postagens">
+                <button
+                    class="aba"
+                    data-pagina="postagens"
+                >
                     📰 Postagens
-                </a>
+                </button>
             </li>
 
+
             <li>
-                <a href="#saiba-mais">
+                <button
+                    class="aba"
+                    data-pagina="saiba-mais"
+                >
                     📚 Saiba mais
-                </a>
+                </button>
             </li>
 
+
             <li>
-                <a href="#fatos">
+                <button
+                    class="aba"
+                    data-pagina="fatos"
+                >
                     💡 Fatos interessantes
-                </a>
+                </button>
             </li>
 
-            <li>
 
+            <li>
                 <button id="botao-tema">
                     🌙 Tema escuro
                 </button>
-
             </li>
 
         </ul>
@@ -1670,20 +1631,20 @@
     </nav>
 
 
-    <!-- =====================================================
-         CONTEÚDO PRINCIPAL
-         ===================================================== -->
+    <!-- =========================================================
+         CONTEÚDO
+         ========================================================= -->
 
     <main>
 
 
-        <!-- =================================================
-             INÍCIO
-             ================================================= -->
+        <!-- =====================================================
+             PÁGINA INÍCIO
+             ===================================================== -->
 
         <section
-            class="secao"
-            id="inicio-conteudo"
+            class="pagina ativa"
+            id="pagina-inicio"
         >
 
             <div class="destaque">
@@ -1701,47 +1662,145 @@
 
             </div>
 
+
+            <div class="caixa">
+
+                <h2 class="titulo-secao">
+                    🌊 Explore o blog
+                </h2>
+
+                <p>
+
+                    Navegue pelas abas acima para conhecer
+                    o blog. Você encontrará informações
+                    sobre natureza, animais, água,
+                    reciclagem, sustentabilidade e
+                    várias outras questões relacionadas
+                    ao nosso planeta.
+
+                    <br><br>
+
+                    ✨ Clique nas abas do menu para
+                    explorar cada parte do Blog Ambiental!
+
+                </p>
+
+            </div>
+
+
+            <div class="caixa">
+
+                <h2 class="titulo-secao">
+                    🐬 Um planeta cheio de vida
+                </h2>
+
+                <p>
+
+                    A Terra possui uma enorme diversidade
+                    de ambientes e espécies. Oceanos,
+                    florestas, rios e outros ecossistemas
+                    estão conectados e dependem de um
+                    equilíbrio natural.
+
+                    <br><br>
+
+                    💙 Cuidar da natureza também é cuidar
+                    do nosso futuro.
+
+                </p>
+
+            </div>
+
         </section>
 
 
-        <!-- =================================================
-             SOBRE
-             ================================================= -->
+
+        <!-- =====================================================
+             PÁGINA SOBRE
+             ===================================================== -->
 
         <section
-            class="secao"
-            id="sobre"
+            class="pagina"
+            id="pagina-sobre"
         >
 
             <h2 class="titulo-secao">
                 🌱 Sobre o blog
             </h2>
 
-            <p>
 
-                Este blog foi criado para falar sobre
-                questões ambientais de uma maneira simples
-                e interessante.
+            <div class="caixa">
 
-                <br><br>
+                <p>
 
-                Aqui você poderá encontrar informações
-                sobre natureza, animais, água, reciclagem,
-                sustentabilidade e várias outras questões
-                relacionadas ao nosso planeta.
+                    Este blog foi criado para falar sobre
+                    questões ambientais de uma maneira simples
+                    e interessante.
 
-            </p>
+                    <br><br>
+
+                    Aqui você poderá encontrar informações
+                    sobre natureza, animais, água, reciclagem,
+                    sustentabilidade e várias outras questões
+                    relacionadas ao nosso planeta.
+
+                </p>
+
+            </div>
+
+
+            <div class="caixa">
+
+                <h2 class="titulo-secao">
+                    🌎 Nosso objetivo
+                </h2>
+
+                <p>
+
+                    O objetivo do Blog Ambiental é tornar
+                    assuntos relacionados ao meio ambiente
+                    mais fáceis de conhecer e compreender.
+
+                    <br><br>
+
+                    Pequenas atitudes podem contribuir para
+                    a preservação do planeta e para a
+                    construção de um futuro mais sustentável.
+
+                </p>
+
+            </div>
+
+
+            <div class="caixa">
+
+                <h2 class="titulo-secao">
+                    💧 Natureza
+                </h2>
+
+                <p>
+
+                    A natureza possui uma enorme diversidade
+                    de formas de vida. Florestas, rios,
+                    oceanos e outros ambientes formam uma
+                    grande rede de relações entre os seres
+                    vivos.
+
+                </p>
+
+            </div>
 
         </section>
 
 
-        <!-- =================================================
-             POSTAGENS
-             ================================================= -->
+
+        <!-- =====================================================
+             PÁGINA POSTAGENS
+             ===================================================== -->
 
         <section
-            class="secao"
-            id="postagens"
+            class="pagina"
+            id="pagina-postagens"
         >
 
             <h2 class="titulo-secao">
@@ -1752,9 +1811,7 @@
             <div class="postagens">
 
 
-                <!-- =================================================
-                     POSTAGEM 1
-                     ================================================= -->
+                <!-- POSTAGEM 1 -->
 
                 <article
                     class="postagem"
@@ -1788,9 +1845,7 @@
 
                             🤍 Curtir
 
-                            <span
-                                class="contador-curtidas"
-                            >
+                            <span class="contador-curtidas">
                                 0
                             </span>
 
@@ -1828,9 +1883,7 @@
 
                         <ul class="lista-comentarios">
 
-                            <li
-                                class="comentario-vazio"
-                            >
+                            <li class="comentario-vazio">
                                 Ainda não existem comentários.
                             </li>
 
@@ -1841,9 +1894,8 @@
                 </article>
 
 
-                <!-- =================================================
-                     POSTAGEM 2
-                     ================================================= -->
+
+                <!-- POSTAGEM 2 -->
 
                 <article
                     class="postagem"
@@ -1876,9 +1928,7 @@
 
                             🤍 Curtir
 
-                            <span
-                                class="contador-curtidas"
-                            >
+                            <span class="contador-curtidas">
                                 0
                             </span>
 
@@ -1916,9 +1966,7 @@
 
                         <ul class="lista-comentarios">
 
-                            <li
-                                class="comentario-vazio"
-                            >
+                            <li class="comentario-vazio">
                                 Ainda não existem comentários.
                             </li>
 
@@ -1929,9 +1977,8 @@
                 </article>
 
 
-                <!-- =================================================
-                     POSTAGEM 3
-                     ================================================= -->
+
+                <!-- POSTAGEM 3 -->
 
                 <article
                     class="postagem"
@@ -1965,9 +2012,7 @@
 
                             🤍 Curtir
 
-                            <span
-                                class="contador-curtidas"
-                            >
+                            <span class="contador-curtidas">
                                 0
                             </span>
 
@@ -2005,9 +2050,7 @@
 
                         <ul class="lista-comentarios">
 
-                            <li
-                                class="comentario-vazio"
-                            >
+                            <li class="comentario-vazio">
                                 Ainda não existem comentários.
                             </li>
 
@@ -2018,9 +2061,8 @@
                 </article>
 
 
-                <!-- =================================================
-                     POSTAGEM 4
-                     ================================================= -->
+
+                <!-- POSTAGEM 4 -->
 
                 <article
                     class="postagem"
@@ -2054,9 +2096,7 @@
 
                             🤍 Curtir
 
-                            <span
-                                class="contador-curtidas"
-                            >
+                            <span class="contador-curtidas">
                                 0
                             </span>
 
@@ -2094,9 +2134,7 @@
 
                         <ul class="lista-comentarios">
 
-                            <li
-                                class="comentario-vazio"
-                            >
+                            <li class="comentario-vazio">
                                 Ainda não existem comentários.
                             </li>
 
@@ -2107,9 +2145,8 @@
                 </article>
 
 
-                <!-- =================================================
-                     POSTAGEM 5
-                     ================================================= -->
+
+                <!-- POSTAGEM 5 -->
 
                 <article
                     class="postagem"
@@ -2143,9 +2180,7 @@
 
                             🤍 Curtir
 
-                            <span
-                                class="contador-curtidas"
-                            >
+                            <span class="contador-curtidas">
                                 0
                             </span>
 
@@ -2183,9 +2218,7 @@
 
                         <ul class="lista-comentarios">
 
-                            <li
-                                class="comentario-vazio"
-                            >
+                            <li class="comentario-vazio">
                                 Ainda não existem comentários.
                             </li>
 
@@ -2196,9 +2229,8 @@
                 </article>
 
 
-                <!-- =================================================
-                     POSTAGEM 6
-                     ================================================= -->
+
+                <!-- POSTAGEM 6 -->
 
                 <article
                     class="postagem"
@@ -2231,9 +2263,7 @@
 
                             🤍 Curtir
 
-                            <span
-                                class="contador-curtidas"
-                            >
+                            <span class="contador-curtidas">
                                 0
                             </span>
 
@@ -2271,9 +2301,7 @@
 
                         <ul class="lista-comentarios">
 
-                            <li
-                                class="comentario-vazio"
-                            >
+                            <li class="comentario-vazio">
                                 Ainda não existem comentários.
                             </li>
 
@@ -2283,18 +2311,20 @@
 
                 </article>
 
+
             </div>
 
         </section>
 
 
-        <!-- =================================================
-             SAIBA MAIS
-             ================================================= -->
+
+        <!-- =====================================================
+             PÁGINA SAIBA MAIS
+             ===================================================== -->
 
         <section
-            class="secao"
-            id="saiba-mais"
+            class="pagina"
+            id="pagina-saiba-mais"
         >
 
             <h2 class="titulo-secao">
@@ -2327,16 +2357,41 @@
 
             </ul>
 
+
+            <div class="caixa" style="margin-top:25px;">
+
+                <h2 class="titulo-secao">
+                    🌊 Pequenas atitudes
+                </h2>
+
+                <p>
+
+                    Preservar o meio ambiente não depende
+                    apenas de grandes ações.
+
+                    <br><br>
+
+                    Economizar água, evitar desperdícios,
+                    separar materiais recicláveis e cuidar
+                    dos espaços naturais são exemplos de
+                    atitudes que podem fazer parte do
+                    nosso cotidiano.
+
+                </p>
+
+            </div>
+
         </section>
 
 
-        <!-- =================================================
-             FATOS INTERESSANTES
-             ================================================= -->
+
+        <!-- =====================================================
+             PÁGINA FATOS
+             ===================================================== -->
 
         <section
-            class="secao"
-            id="fatos"
+            class="pagina"
+            id="pagina-fatos"
         >
 
             <h2 class="titulo-secao">
@@ -2345,6 +2400,7 @@
 
 
             <div class="fatos">
+
 
                 <article class="fato">
 
@@ -2399,16 +2455,42 @@
 
                 </article>
 
+
+            </div>
+
+
+            <div class="caixa" style="margin-top:25px;">
+
+                <h2 class="titulo-secao">
+                    🐬 Você sabia?
+                </h2>
+
+                <p>
+
+                    A biodiversidade inclui todas as
+                    diferentes formas de vida existentes
+                    em nosso planeta, desde pequenos
+                    organismos até grandes animais e
+                    plantas.
+
+                    <br><br>
+
+                    🌎 Cada espécie possui uma função
+                    dentro dos ecossistemas.
+
+                </p>
+
             </div>
 
         </section>
 
+
     </main>
 
 
-    <!-- =====================================================
+    <!-- =========================================================
          RODAPÉ
-         ===================================================== -->
+         ========================================================= -->
 
     <footer>
 
@@ -2423,98 +2505,229 @@
     </footer>
 
 
-    <!-- =====================================================
-         JAVASCRIPT
-         ===================================================== -->
-
-    <script>
+</div>
 
 
-        /* =====================================================
-           TROCA DE TEMA
-           ===================================================== */
 
-        const botaoTema =
-            document.getElementById(
-                "botao-tema"
-            );
+<script>
 
 
-        botaoTema.addEventListener(
+    /* =========================================================
+       SISTEMA DE ABAS
+       ========================================================= */
+
+    const abas =
+        document.querySelectorAll(".aba");
+
+
+    const paginas =
+        document.querySelectorAll(".pagina");
+
+
+    abas.forEach(function(aba) {
+
+        aba.addEventListener(
             "click",
-            function () {
+            function() {
 
-                document.body.classList.toggle(
-                    "tema-escuro"
+                const paginaEscolhida =
+                    aba.dataset.pagina;
+
+
+                /* Remove página ativa */
+
+                paginas.forEach(
+                    function(pagina) {
+
+                        pagina.classList.remove(
+                            "ativa"
+                        );
+
+                    }
                 );
 
 
-                if (
-                    document.body.classList.contains(
-                        "tema-escuro"
-                    )
-                ) {
+                /* Remove botão ativo */
 
-                    botaoTema.textContent =
-                        "☀️ Tema claro";
+                abas.forEach(
+                    function(item) {
 
-                } else {
+                        item.classList.remove(
+                            "ativo"
+                        );
 
-                    botaoTema.textContent =
-                        "🌙 Tema escuro";
+                    }
+                );
 
-                }
+
+                /* Ativa página escolhida */
+
+                const pagina =
+                    document.getElementById(
+                        "pagina-" +
+                        paginaEscolhida
+                    );
+
+
+                pagina.classList.add(
+                    "ativa"
+                );
+
+
+                /* Ativa botão */
+
+                aba.classList.add(
+                    "ativo"
+                );
+
+
+                /* Volta para o topo */
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
 
             }
         );
 
+    });
 
-        /* =====================================================
-           SISTEMA DE CURTIDAS
-           ===================================================== */
 
-        const postagens =
-            document.querySelectorAll(
-                ".postagem"
+
+    /* =========================================================
+       TEMA ESCURO
+       ========================================================= */
+
+    const botaoTema =
+        document.getElementById(
+            "botao-tema"
+        );
+
+
+    botaoTema.addEventListener(
+        "click",
+        function() {
+
+            document.body.classList.toggle(
+                "tema-escuro"
             );
 
 
-        postagens.forEach(
-            function (postagem) {
+            if (
+                document.body.classList.contains(
+                    "tema-escuro"
+                )
+            ) {
 
-                const id =
-                    postagem.dataset.postId;
+                botaoTema.textContent =
+                    "☀️ Tema claro";
 
+            } else {
 
-                const botaoCurtir =
-                    postagem.querySelector(
-                        ".botao-curtir"
-                    );
+                botaoTema.textContent =
+                    "🌙 Tema escuro";
 
+            }
 
-                const contador =
-                    postagem.querySelector(
-                        ".contador-curtidas"
-                    );
-
-
-                let curtidas =
-                    Number(
-                        localStorage.getItem(
-                            "curtidas-" + id
-                        )
-                    ) || 0;
+        }
+    );
 
 
-                let usuarioCurtiu =
+
+    /* =========================================================
+       SISTEMA DE CURTIDAS
+       ========================================================= */
+
+    const postagens =
+        document.querySelectorAll(
+            ".postagem"
+        );
+
+
+    postagens.forEach(
+        function(postagem) {
+
+            const id =
+                postagem.dataset.postId;
+
+
+            const botaoCurtir =
+                postagem.querySelector(
+                    ".botao-curtir"
+                );
+
+
+            const contador =
+                postagem.querySelector(
+                    ".contador-curtidas"
+                );
+
+
+            let curtidas =
+                Number(
                     localStorage.getItem(
-                        "curtiu-" + id
-                    ) === "true";
+                        "curtidas-" + id
+                    )
+                ) || 0;
 
 
-                contador.textContent =
-                    curtidas;
+            let usuarioCurtiu =
+                localStorage.getItem(
+                    "curtiu-" + id
+                ) === "true";
 
+
+            atualizarBotao();
+
+
+            botaoCurtir.addEventListener(
+                "click",
+                function() {
+
+                    if (usuarioCurtiu) {
+
+                        curtidas--;
+
+                        usuarioCurtiu =
+                            false;
+
+                    } else {
+
+                        curtidas++;
+
+                        usuarioCurtiu =
+                            true;
+
+                    }
+
+
+                    if (curtidas < 0) {
+
+                        curtidas = 0;
+
+                    }
+
+
+                    localStorage.setItem(
+                        "curtidas-" + id,
+                        curtidas
+                    );
+
+
+                    localStorage.setItem(
+                        "curtiu-" + id,
+                        usuarioCurtiu
+                    );
+
+
+                    atualizarBotao();
+
+                }
+            );
+
+
+            function atualizarBotao() {
 
                 if (usuarioCurtiu) {
 
@@ -2525,312 +2738,249 @@
                     botaoCurtir.innerHTML =
                         "❤️ Curtido " +
                         `<span class="contador-curtidas">${curtidas}</span>`;
+
+                } else {
+
+                    botaoCurtir.classList.remove(
+                        "curtido"
+                    );
+
+                    botaoCurtir.innerHTML =
+                        "🤍 Curtir " +
+                        `<span class="contador-curtidas">${curtidas}</span>`;
+
                 }
 
-
-                botaoCurtir.addEventListener(
-                    "click",
-                    function () {
-
-                        if (usuarioCurtiu) {
-
-                            curtidas--;
-
-                            usuarioCurtiu =
-                                false;
-
-                        } else {
-
-                            curtidas++;
-
-                            usuarioCurtiu =
-                                true;
-                        }
+            }
 
 
-                        if (curtidas < 0) {
 
-                            curtidas = 0;
+            /* =================================================
+               COMENTÁRIOS
+               ================================================= */
 
-                        }
-
-
-                        localStorage.setItem(
-                            "curtidas-" + id,
-                            curtidas
-                        );
-
-
-                        localStorage.setItem(
-                            "curtiu-" + id,
-                            usuarioCurtiu
-                        );
-
-
-                        contador.textContent =
-                            curtidas;
-
-
-                        if (usuarioCurtiu) {
-
-                            botaoCurtir.classList.add(
-                                "curtido"
-                            );
-
-                            botaoCurtir.innerHTML =
-                                "❤️ Curtido " +
-                                `<span class="contador-curtidas">${curtidas}</span>`;
-
-                        } else {
-
-                            botaoCurtir.classList.remove(
-                                "curtido"
-                            );
-
-                            botaoCurtir.innerHTML =
-                                "🤍 Curtir " +
-                                `<span class="contador-curtidas">${curtidas}</span>`;
-                        }
-
-                    }
+            const formulario =
+                postagem.querySelector(
+                    ".form-comentario"
                 );
 
 
-                /* =================================================
-                   SISTEMA DE COMENTÁRIOS
-                   ================================================= */
-
-                const formulario =
-                    postagem.querySelector(
-                        ".form-comentario"
-                    );
-
-
-                const campo =
-                    postagem.querySelector(
-                        ".campo-comentario"
-                    );
-
-
-                const lista =
-                    postagem.querySelector(
-                        ".lista-comentarios"
-                    );
-
-
-                const chaveComentarios =
-                    "comentarios-" + id;
-
-
-                let comentarios =
-                    JSON.parse(
-                        localStorage.getItem(
-                            chaveComentarios
-                        )
-                    ) || [];
-
-
-                mostrarComentarios();
-
-
-                /* =================================================
-                   ENVIO DO COMENTÁRIO
-                   ================================================= */
-
-                formulario.addEventListener(
-                    "submit",
-                    function (evento) {
-
-                        evento.preventDefault();
-
-
-                        const texto =
-                            campo.value.trim();
-
-
-                        if (texto === "") {
-
-                            alert(
-                                "Digite um comentário antes de publicar."
-                            );
-
-                            campo.focus();
-
-                            return;
-                        }
-
-
-                        comentarios.push({
-
-                            id:
-                                Date.now(),
-
-                            texto:
-                                texto
-
-                        });
-
-
-                        salvarComentarios();
-
-
-                        mostrarComentarios();
-
-
-                        campo.value = "";
-
-                    }
+            const campo =
+                postagem.querySelector(
+                    ".campo-comentario"
                 );
 
 
-                /* =================================================
-                   MOSTRAR COMENTÁRIOS
-                   ================================================= */
-
-                function mostrarComentarios() {
-
-                    lista.innerHTML = "";
+            const lista =
+                postagem.querySelector(
+                    ".lista-comentarios"
+                );
 
 
-                    if (
-                        comentarios.length === 0
-                    ) {
-
-                        const vazio =
-                            document.createElement(
-                                "li"
-                            );
+            const chaveComentarios =
+                "comentarios-" + id;
 
 
-                        vazio.className =
-                            "comentario-vazio";
+            let comentarios =
+                JSON.parse(
+                    localStorage.getItem(
+                        chaveComentarios
+                    )
+                ) || [];
 
 
-                        vazio.textContent =
-                            "Ainda não existem comentários.";
+            mostrarComentarios();
 
 
-                        lista.appendChild(
-                            vazio
+
+            formulario.addEventListener(
+                "submit",
+                function(evento) {
+
+                    evento.preventDefault();
+
+
+                    const texto =
+                        campo.value.trim();
+
+
+                    if (texto === "") {
+
+                        alert(
+                            "Digite um comentário antes de publicar."
                         );
 
+                        campo.focus();
 
                         return;
+
                     }
 
 
-                    comentarios
-                        .slice()
-                        .reverse()
-                        .forEach(
-                            function (comentario) {
+                    comentarios.push({
 
-                                const item =
-                                    document.createElement(
-                                        "li"
-                                    );
+                        id:
+                            Date.now(),
 
+                        texto:
+                            texto
 
-                                item.className =
-                                    "comentario";
-
-
-                                item.textContent =
-                                    "💬 " +
-                                    comentario.texto;
-
-
-                                const excluir =
-                                    document.createElement(
-                                        "button"
-                                    );
-
-
-                                excluir.className =
-                                    "botao-excluir-comentario";
-
-
-                                excluir.textContent =
-                                    "🗑️";
-
-
-                                excluir.title =
-                                    "Excluir comentário";
-
-
-                                excluir.addEventListener(
-                                    "click",
-                                    function () {
-
-                                        excluirComentario(
-                                            comentario.id
-                                        );
-
-                                    }
-                                );
-
-
-                                item.appendChild(
-                                    excluir
-                                );
-
-
-                                lista.appendChild(
-                                    item
-                                );
-
-                            }
-                        );
-                }
-
-
-                /* =================================================
-                   SALVAR COMENTÁRIOS
-                   ================================================= */
-
-                function salvarComentarios() {
-
-                    localStorage.setItem(
-                        chaveComentarios,
-                        JSON.stringify(
-                            comentarios
-                        )
-                    );
-
-                }
-
-
-                /* =================================================
-                   EXCLUIR COMENTÁRIO
-                   ================================================= */
-
-                function excluirComentario(
-                    idComentario
-                ) {
-
-                    comentarios =
-                        comentarios.filter(
-                            function (comentario) {
-
-                                return (
-                                    comentario.id !==
-                                    idComentario
-                                );
-
-                            }
-                        );
+                    });
 
 
                     salvarComentarios();
 
                     mostrarComentarios();
 
+                    campo.value = "";
+
+                }
+            );
+
+
+
+            function mostrarComentarios() {
+
+                lista.innerHTML = "";
+
+
+                if (
+                    comentarios.length === 0
+                ) {
+
+                    const vazio =
+                        document.createElement(
+                            "li"
+                        );
+
+
+                    vazio.className =
+                        "comentario-vazio";
+
+
+                    vazio.textContent =
+                        "Ainda não existem comentários.";
+
+
+                    lista.appendChild(
+                        vazio
+                    );
+
+
+                    return;
+
                 }
 
-            }
-        );
 
-    </script>
+                comentarios
+                    .slice()
+                    .reverse()
+                    .forEach(
+                        function(comentario) {
+
+                            const item =
+                                document.createElement(
+                                    "li"
+                                );
+
+
+                            item.className =
+                                "comentario";
+
+
+                            item.textContent =
+                                "💬 " +
+                                comentario.texto;
+
+
+                            const excluir =
+                                document.createElement(
+                                    "button"
+                                );
+
+
+                            excluir.className =
+                                "botao-excluir-comentario";
+
+
+                            excluir.textContent =
+                                "🗑️";
+
+
+                            excluir.title =
+                                "Excluir comentário";
+
+
+                            excluir.addEventListener(
+                                "click",
+                                function() {
+
+                                    excluirComentario(
+                                        comentario.id
+                                    );
+
+                                }
+                            );
+
+
+                            item.appendChild(
+                                excluir
+                            );
+
+
+                            lista.appendChild(
+                                item
+                            );
+
+                        }
+                    );
+
+            }
+
+
+
+            function salvarComentarios() {
+
+                localStorage.setItem(
+                    chaveComentarios,
+                    JSON.stringify(
+                        comentarios
+                    )
+                );
+
+            }
+
+
+
+            function excluirComentario(
+                idComentario
+            ) {
+
+                comentarios =
+                    comentarios.filter(
+                        function(comentario) {
+
+                            return (
+                                comentario.id !==
+                                idComentario
+                            );
+
+                        }
+                    );
+
+
+                salvarComentarios();
+
+                mostrarComentarios();
+
+            }
+
+        }
+    );
+
+
+</script>
+
 
 </body>
 
